@@ -75,6 +75,7 @@ Read the skill before starting the work it covers.
 | `refactor` | Safe refactoring with preservation guarantees |
 | `add-domain` | Bootstrap a new business domain module |
 | `doc-gardening` | Scan and fix stale documentation |
+| `meta` | End-of-task retrospective workflow for updating an existing skill or creating a new one |
 
 ## Tool-Specific Bootstrap Files
 

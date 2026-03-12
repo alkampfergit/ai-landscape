@@ -82,8 +82,10 @@ Actions (agent self-review):
 Actions:
 1. Ensure the PR has a clear title and description.
 2. Link to the original task/issue.
-3. Squash commits if there are fixup commits.
-4. Merge only when all CI gates are green.
+3. Run the `meta` skill before closing the task to decide whether reusable
+   learning should update an existing skill or become a new one.
+4. Squash commits if there are fixup commits.
+5. Merge only when all CI gates are green.
 
 ## When Things Go Wrong
 
