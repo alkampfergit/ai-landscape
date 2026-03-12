@@ -1,43 +1,12 @@
 # Copilot Instructions
 
-## Project Context
+This file exists because GitHub Copilot supports workspace instructions here.
 
-This project uses a harness engineering approach where AI agents are the primary
-code authors. Humans design the environment, specify intent, and review output.
+Canonical repository instructions live in [AGENTS.md](../AGENTS.md).
 
-## Key Principles
+## What Copilot Should Do
 
-- Dependencies flow one direction: Types → Config → Repository → Service → Runtime → UI/API
-- Validate all data at boundaries — never trust unvalidated shapes
-- Prefer boring, well-understood patterns over clever solutions
-- Every rule must be mechanically enforced (linter, CI, test)
-
-## Before Writing Code
-
-1. Check `docs/architecture/ARCHITECTURE.md` for the system map
-2. Check `docs/design/PATTERNS.md` for preferred patterns
-3. Check `docs/quality/QUALITY-GRADES.md` for area health
-4. Follow `docs/workflows/TASK-LIFECYCLE.md` for the correct process
-
-## Code Standards
-
-- One concept per file, max 300 lines per file, max 30 lines per function
-- Constructor injection for dependencies
-- Result types for expected failures, exceptions for programmer errors
-- Structured logging with correlation IDs
-- Test naming: `[unit]_[scenario]_[expected]`
-
-## Skills
-
-For repeatable tasks, read the corresponding skill file before starting:
-
-- `skills/new-feature/SKILL.md` — feature implementation
-- `skills/bug-fix/SKILL.md` — bug reproduction and fix
-- `skills/refactor/SKILL.md` — safe refactoring
-- `skills/add-domain/SKILL.md` — new domain scaffolding
-- `skills/doc-gardening/SKILL.md` — documentation maintenance
-
-## Commit Convention
-
-Format: `[type]: [brief description]`
-Types: feat, fix, refactor, docs, test, chore
+1. Read [AGENTS.md](../AGENTS.md) first.
+2. Treat [AGENTS.md](../AGENTS.md) and the docs it links to as the source of truth.
+3. Use repository skills and workflows exactly as directed from [AGENTS.md](../AGENTS.md).
+4. If this file and [AGENTS.md](../AGENTS.md) ever disagree, [AGENTS.md](../AGENTS.md) wins.
