@@ -12,6 +12,7 @@ This repository is a reusable template for bootstrapping agent-first development
 - No templates folder for consistent agent output
 - Language-specific examples in a language-agnostic template
 - Inconsistent skill frontmatter across skills
+- Duplicate skills in `skills/` and `.claude/skills/` with no sync mechanism
 - Stale README structure diagram
 - Placeholder dates in ADRs
 - `meta/links.md` has unclear placement
@@ -29,13 +30,18 @@ This repository is a reusable template for bootstrapping agent-first development
 │   └── links.md                           # Moved from meta/links.md
 ├── meta/
 │   └── skill-guide.md                     # Unchanged
-├── skills/                                # Frontmatter standardized on all skills
 ├── templates/                             # NEW — agent output templates
 │   ├── pr.template.md
 │   ├── adr.template.md
 │   └── commit.template.md
 └── .claude/
-    └── skills/                            # Frontmatter standardized to match skills/
+    └── skills/                            # Single source of truth for all skills
+        ├── new-feature/SKILL.md
+        ├── bug-fix/SKILL.md
+        ├── refactor/SKILL.md
+        ├── add-domain/SKILL.md
+        ├── doc-gardening/SKILL.md
+        └── meta/SKILL.md
 ```
 
 ### 2. BOOTSTRAP.md
@@ -67,9 +73,16 @@ Each template has a header explaining its purpose and when an agent should use i
 - **DECISIONS.md**: ADR-001 and ADR-002 get date 2026-03-12 (initial commit date).
 - **No other doc content changes**: Placeholders in architecture docs (`[domain-1]`, `[e.g., PostgreSQL]`) stay — the bootstrap process fills those.
 
-### 5. Skill Frontmatter Standardization
+### 5. Skills Consolidation and Frontmatter Standardization
 
-All six skills get consistent YAML frontmatter matching meta/SKILL.md format:
+**Consolidation:** The duplicate `skills/` folder is deleted. `.claude/skills/` becomes the single source of truth for all skills. This eliminates the maintenance burden of keeping two copies in sync.
+
+AGENTS.md documents all skills with their purpose and location so that:
+- Agents using Claude Code discover them automatically via `.claude/skills/`
+- Users adopting other AI tools can find the skill list in AGENTS.md and move/copy them to the tool's expected location
+- There is never ambiguity about which copy is authoritative
+
+**Frontmatter:** All six skills get consistent YAML frontmatter matching `.claude/skills/meta/SKILL.md` format:
 
 ```yaml
 ---
@@ -83,7 +96,7 @@ metadata:
 ---
 ```
 
-Currently only `skills/meta/SKILL.md` has this. The other five (`new-feature`, `bug-fix`, `refactor`, `add-domain`, `doc-gardening`) get frontmatter added. Both `skills/` and `.claude/skills/` copies updated identically.
+Currently only `.claude/skills/meta/SKILL.md` has this. The other five (`new-feature`, `bug-fix`, `refactor`, `add-domain`, `doc-gardening`) get frontmatter added.
 
 ### 6. extra/ Folder
 
@@ -113,15 +126,11 @@ Currently only `skills/meta/SKILL.md` has this. The other five (`new-feature`, `
 | `templates/commit.template.md` | Create |
 | `extra/links.md` | Create (moved from `meta/links.md`) |
 | `meta/links.md` | Delete (moved to `extra/links.md`) |
+| `skills/` | Delete entire folder (consolidated into `.claude/skills/`) |
 | `docs/design/PATTERNS.md` | Edit — pseudocode examples |
 | `docs/context/DECISIONS.md` | Edit — fix ADR dates |
-| `AGENTS.md` | Edit — add table entries, update skills table |
+| `AGENTS.md` | Edit — add table entries, update skills section, document Claude-first approach |
 | `README.md` | Edit — update structure diagram |
-| `skills/new-feature/SKILL.md` | Edit — add frontmatter |
-| `skills/bug-fix/SKILL.md` | Edit — add frontmatter |
-| `skills/refactor/SKILL.md` | Edit — add frontmatter |
-| `skills/add-domain/SKILL.md` | Edit — add frontmatter |
-| `skills/doc-gardening/SKILL.md` | Edit — add frontmatter |
 | `.claude/skills/new-feature/SKILL.md` | Edit — add frontmatter |
 | `.claude/skills/bug-fix/SKILL.md` | Edit — add frontmatter |
 | `.claude/skills/refactor/SKILL.md` | Edit — add frontmatter |
@@ -132,5 +141,4 @@ Currently only `skills/meta/SKILL.md` has this. The other five (`new-feature`, `
 
 - CI/CD configuration — language-specific, handled by bootstrap process
 - Structural test implementations — language-specific, handled by bootstrap process
-- Skill sync mechanism between `skills/` and `.claude/skills/` — deferred
 - `meta/skill-guide.md` changes — content is fine as-is
