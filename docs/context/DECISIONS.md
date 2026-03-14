@@ -53,7 +53,7 @@ Do NOT write an ADR for:
 
 ## ADR-001: Repository-as-Source-of-Truth Policy
 
-**Date**: [DATE]
+**Date**: 2026-03-12
 **Status**: Accepted
 **Deciders**: [founding team]
 
@@ -85,7 +85,7 @@ markdown files or code artifacts.
 
 ## ADR-002: Progressive Disclosure via Structured docs/ Directory
 
-**Date**: [DATE]
+**Date**: 2026-03-12
 **Status**: Accepted
 **Deciders**: [founding team]
 
