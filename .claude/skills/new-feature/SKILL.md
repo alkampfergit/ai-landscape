@@ -1,3 +1,15 @@
+---
+name: new-feature
+description: >
+  End-to-end workflow for adding a new feature from a task or prompt description.
+  Use when implementing a new capability, adding an endpoint, introducing a new
+  service method, or building a new UI component.
+metadata:
+  author: ai-landscape
+  version: 1.0.0
+  category: workflow
+---
+
 # Skill: New Feature
 
 > Use this skill when implementing a new feature from a task/prompt description.
