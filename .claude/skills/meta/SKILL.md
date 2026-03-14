@@ -52,9 +52,8 @@ If the answer is no, stop and do not make a skill change.
 
 ### Step 2: Inspect Existing Skills Before Creating Anything
 
-Search both skill locations:
-- `skills/**/SKILL.md` is the canonical shared set.
-- `.claude/skills/**/SKILL.md` may exist as a tool-specific mirror.
+Search the skill location:
+- `.claude/skills/**/SKILL.md` is the single source of truth.
 
 Prefer updating an existing skill when the new guidance fits its scope.
 
@@ -85,11 +84,8 @@ When editing an existing skill:
 3. Tighten vague wording rather than appending redundant prose.
 
 When creating a new skill:
-1. Create the canonical file at `skills/<skill-name>/SKILL.md`.
-2. Check `AGENTS.md` and the current repository layout. If this repository uses
-  tool-specific mirrors, create `.claude/skills/<skill-name>/SKILL.md` with
-  identical content.
-3. Add the skill to the table in `AGENTS.md`.
+1. Create the file at `.claude/skills/<skill-name>/SKILL.md`.
+2. Add the skill to the table in `AGENTS.md`.
 
 Keep the content focused. Prefer checklists, decision rules, and concrete steps
 over broad commentary.
@@ -131,10 +127,8 @@ Task outcome: the work showed that `bug-fix` should explicitly tell the agent to
 capture reproduction steps before changing code.
 
 Action:
-1. Update `skills/bug-fix/SKILL.md`.
-2. Mirror the same change in `.claude/skills/bug-fix/SKILL.md` if that mirror is
-  present in the repository.
-3. Launch a refinement subagent using `meta/skill-guide.md` as the rubric.
+1. Update `.claude/skills/bug-fix/SKILL.md`.
+2. Launch a refinement subagent using `meta/skill-guide.md` as the rubric.
 
 **Example 2: Create A New Skill**
 
@@ -142,10 +136,9 @@ Task outcome: the conversation produced a repeatable workflow for maintaining
 agent skills, and no existing skill covers that scope.
 
 Action:
-1. Create `skills/meta/SKILL.md`.
-2. Mirror it to `.claude/skills/meta/SKILL.md` when needed.
-3. Register it in `AGENTS.md`.
-4. Launch a refinement subagent to tighten the new skill before closing the task.
+1. Create `.claude/skills/meta/SKILL.md`.
+2. Register it in `AGENTS.md`.
+3. Launch a refinement subagent to tighten the new skill before closing the task.
 
 ## Output
 
@@ -178,5 +171,5 @@ missing sections, and overlap with existing skills.
 
 - Prefer updating over creating when scope overlaps.
 - Do not add a skill for a single incident with no reuse value.
-- Do not let `.claude/skills` diverge from `skills` when both are touched.
+- Always update `.claude/skills/` as the single source of truth.
 - Do not skip the subagent refinement pass after drafting the skill change.

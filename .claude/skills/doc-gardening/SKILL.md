@@ -31,7 +31,7 @@ For a routine maintenance pass:
 ## Scope
 
 This skill is tailored to repositories that follow the layout documented in
-`AGENTS.md`, including top-level `docs/`, `skills/`, and `src/domains/`
+`AGENTS.md`, including top-level `docs/`, `.claude/skills/`, and `src/domains/`
 directories. If the repository differs, adapt the checklist rather than forcing
 these paths.
 
@@ -40,7 +40,7 @@ these paths.
 ### 1. AGENTS.md Freshness
 
 - [ ] All links in `AGENTS.md` point to files that exist.
-- [ ] The skill table matches the actual contents of `skills/`.
+- [ ] The skill table matches the actual contents of `.claude/skills/`.
 - [ ] The "Where to Look" table matches the actual `docs/` structure.
 - [ ] The "Last verified" date is within the last 2 weeks.
 
@@ -115,7 +115,7 @@ User says: "Run a docs maintenance pass and fix stale agent docs."
 
 Actions:
 1. Check every `AGENTS.md` link.
-2. Compare the skill table with the real `skills/` folders.
+2. Compare the skill table with the real `.claude/skills/` folders.
 3. Repair broken links and update stale verification dates.
 
 Result: the repository entry point points only to valid, current docs.
