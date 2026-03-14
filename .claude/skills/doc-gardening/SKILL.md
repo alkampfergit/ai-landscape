@@ -4,6 +4,10 @@ description: >
    Scan the repository for stale, broken, or missing documentation and repair
    the highest-priority issues. Use when auditing docs, checking AGENTS links,
    reconciling docs with code, or running periodic documentation maintenance.
+metadata:
+  author: ai-landscape
+  version: 1.0.0
+  category: workflow
 ---
 
 # Doc Gardening

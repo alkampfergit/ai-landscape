@@ -4,6 +4,10 @@ description: >
   Improve code structure without changing behavior using safe, test-preserving
   refactoring steps. Use when extracting helpers, splitting files, reducing
   duplication, aligning with repository patterns, or cleaning up code.
+metadata:
+  author: ai-landscape
+  version: 1.0.0
+  category: workflow
 ---
 
 # Skill: Refactor

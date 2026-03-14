@@ -4,6 +4,10 @@ description: >
   Reproduce and fix reported bugs with test-first verification and root-cause
   analysis. Use when debugging a defect, investigating unexpected behavior,
   triaging a regression, or implementing a minimal corrective fix.
+metadata:
+  author: ai-landscape
+  version: 1.0.0
+  category: workflow
 ---
 
 # Skill: Bug Fix

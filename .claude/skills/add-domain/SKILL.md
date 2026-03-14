@@ -5,6 +5,10 @@ description: >
    architecture updates, and structural tests. Use when adding a new domain,
    introducing a new business capability, creating a new module under
    src/domains, defining a bounded context, or establishing domain boundaries.
+metadata:
+  author: ai-landscape
+  version: 1.0.0
+  category: workflow
 ---
 
 # Skill: Add Domain
