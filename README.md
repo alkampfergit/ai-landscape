@@ -20,7 +20,9 @@ When an agent fails, the fix is never "try harder." The fix is always:
 
 ```
 ├── AGENTS.md                              # Agent entry point (~100 lines, table of contents)
+├── BOOTSTRAP.md                           # Prompt for initial project configuration
 ├── README.md                              # This file (human-facing)
+├── CLAUDE.md                              # Claude Code bootstrap (points to AGENTS.md)
 ├── docs/
 │   ├── architecture/
 │   │   ├── ARCHITECTURE.md                # System architecture map
@@ -38,12 +40,22 @@ When an agent fails, the fix is never "try harder." The fix is always:
 │   └── context/
 │       ├── GLOSSARY.md                    # Domain terminology
 │       └── DECISIONS.md                   # Architecture Decision Records
-└── skills/
-    ├── new-feature/SKILL.md               # Feature implementation workflow
-    ├── bug-fix/SKILL.md                   # Bug reproduction and fix workflow
-    ├── refactor/SKILL.md                  # Safe refactoring with guarantees
-    ├── add-domain/SKILL.md                # New domain scaffolding
-    └── doc-gardening/SKILL.md             # Documentation maintenance
+├── templates/
+│   ├── pr.template.md                     # PR description template for agents
+│   ├── adr.template.md                    # ADR template for agents
+│   └── commit.template.md                # Commit message template for agents
+├── extra/
+│   └── links.md                           # Human reference links (not for agents)
+├── meta/
+│   └── skill-guide.md                     # Guide for writing skills
+└── .claude/
+    └── skills/                            # Claude Code skills (single source of truth)
+        ├── new-feature/SKILL.md           # Feature implementation workflow
+        ├── bug-fix/SKILL.md               # Bug reproduction and fix workflow
+        ├── refactor/SKILL.md              # Safe refactoring with guarantees
+        ├── add-domain/SKILL.md            # New domain scaffolding
+        ├── doc-gardening/SKILL.md         # Documentation maintenance
+        └── meta/SKILL.md                  # Skill creation and update workflow
 ```
 
 ## How Progressive Disclosure Works
@@ -58,8 +70,9 @@ AGENTS.md  ← always loaded (the map, ~100 lines)
     ├── docs/quality/*       ← loaded to assess area health
     ├── docs/workflows/*     ← loaded to follow the correct process
     ├── docs/context/*       ← loaded for terminology and past decisions
+    ├── templates/*          ← loaded when producing PRs, ADRs, or commits
     │
-    └── skills/*             ← loaded for specific task types
+    └── .claude/skills/*     ← loaded for specific task types
 ```
 
 The agent loads only what it needs for the current task, keeping context
@@ -67,32 +80,20 @@ focused and effective.
 
 ## How to Adopt
 
-### 1. Customize AGENTS.md
+### 1. Run the Bootstrap Prompt
 
-Replace all `[PLACEHOLDERS]` with your project specifics:
-- Project name, tech stack, architecture style.
-- Add or remove skills based on your workflow.
+Copy [BOOTSTRAP.md](BOOTSTRAP.md) and paste it to your AI coding assistant.
+The AI will ask you about your project and configure all placeholder documents
+automatically — AGENTS.md, architecture docs, quality grades, glossary, and more.
 
-### 2. Fill In Architecture Docs
-
-- Define your actual domains in ARCHITECTURE.md and DOMAIN-BOUNDARIES.md.
-- Set your real dependency rules in DEPENDENCY-RULES.md.
-- Write your initial ADRs in DECISIONS.md.
-
-### 3. Adapt Code Standards
-
-- Update CODE-STANDARDS.md for your language/framework.
-- Add language-specific sections.
-- Configure linters and formatters to match.
-
-### 4. Build Enforcement
+### 2. Build Enforcement
 
 The documentation is only as good as its enforcement. For each rule:
 - Write a linter rule, structural test, or CI check.
 - Include remediation instructions in error messages.
 - The error message IS the teaching mechanism for the agent.
 
-### 5. Start the Feedback Loop
+### 3. Start the Feedback Loop
 
 As you work:
 - When the agent makes a mistake, don't just fix it — ask: *what was missing?*

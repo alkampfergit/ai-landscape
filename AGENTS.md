@@ -53,7 +53,10 @@
 | Review checklist                   | [docs/workflows/REVIEW-CHECKLIST.md](docs/workflows/REVIEW-CHECKLIST.md) |
 | Terminology                        | [docs/context/GLOSSARY.md](docs/context/GLOSSARY.md) |
 | Decisions and ADRs                 | [docs/context/DECISIONS.md](docs/context/DECISIONS.md) |
-| Repeatable task workflows          | [skills/](skills/) |
+| Repeatable task workflows          | [.claude/skills/](.claude/skills/) |
+| Output templates (PRs, ADRs, commits) | [templates/](templates/) |
+| Initial project setup prompt       | [BOOTSTRAP.md](BOOTSTRAP.md) |
+| Human reference files (not for agents) | [extra/](extra/) |
 
 ## Before You Write Code
 
@@ -66,16 +69,18 @@
 ## Skills
 
 Skills are reusable workflows for repeatable tasks.
+They live in `.claude/skills/` as the single source of truth (Claude Code-first).
+Users adopting other AI tools can copy skills from `.claude/skills/` to their tool's expected location.
 Read the skill before starting the work it covers.
 
-| Skill | Purpose |
-|-------|---------|
-| `new-feature` | End-to-end workflow for adding a new feature |
-| `bug-fix` | Structured workflow for reproducing and fixing bugs |
-| `refactor` | Safe refactoring with preservation guarantees |
-| `add-domain` | Bootstrap a new business domain module |
-| `doc-gardening` | Scan and fix stale documentation |
-| `meta` | End-of-task retrospective workflow for updating an existing skill or creating a new one |
+| Skill | Purpose | Location |
+|-------|---------|----------|
+| `new-feature` | End-to-end workflow for adding a new feature | [.claude/skills/new-feature/SKILL.md](.claude/skills/new-feature/SKILL.md) |
+| `bug-fix` | Structured workflow for reproducing and fixing bugs | [.claude/skills/bug-fix/SKILL.md](.claude/skills/bug-fix/SKILL.md) |
+| `refactor` | Safe refactoring with preservation guarantees | [.claude/skills/refactor/SKILL.md](.claude/skills/refactor/SKILL.md) |
+| `add-domain` | Bootstrap a new business domain module | [.claude/skills/add-domain/SKILL.md](.claude/skills/add-domain/SKILL.md) |
+| `doc-gardening` | Scan and fix stale documentation | [.claude/skills/doc-gardening/SKILL.md](.claude/skills/doc-gardening/SKILL.md) |
+| `meta` | End-of-task retrospective workflow for updating or creating skills | [.claude/skills/meta/SKILL.md](.claude/skills/meta/SKILL.md) |
 
 ## Tool-Specific Bootstrap Files
 
@@ -84,4 +89,4 @@ Read the skill before starting the work it covers.
 - If any bootstrap file disagrees with this file, AGENTS.md wins.
 
 ---
-*Last verified: 2026-03-12. If this file feels stale, run the `doc-gardening` skill.*
+*Last verified: 2026-03-14. If this file feels stale, run the `doc-gardening` skill.*
