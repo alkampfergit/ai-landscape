@@ -12,11 +12,11 @@
 
 ```
 // GOOD: Parse and validate at the boundary
-const input = RequestSchema.parse(rawBody);
-orderService.process(input);  // input is now typed and trusted
+input = RequestSchema.parse(rawBody)     // use your stack's schema library
+orderService.process(input)              // input is now typed and trusted
 
 // BAD: Pass raw data through
-orderService.process(req.body);  // what shape is this? unknown
+orderService.process(request.body)       // what shape is this? unknown
 ```
 
 **Why**: Eliminates type confusion deep in business logic.
@@ -28,10 +28,10 @@ See: Design Principle P3.
 
 ```
 // GOOD: Caller must handle both cases
-Result<Order, ValidationError> result = orderService.Create(command);
+result = orderService.create(command)    // returns Result<Order, ValidationError>
 
 // BAD: Exception for expected business rule violation
-throw new OrderValidationException("...");
+throw OrderValidationException("...")    // caller has no compile-time warning
 ```
 
 **Why**: Makes failure paths explicit and forces callers to handle them.
