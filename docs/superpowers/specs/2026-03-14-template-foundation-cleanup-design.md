@@ -83,7 +83,7 @@ metadata:
 ---
 ```
 
-Currently only `meta/SKILL.md` has this. The other five (`new-feature`, `bug-fix`, `refactor`, `add-domain`, `doc-gardening`) get frontmatter added. Both `skills/` and `.claude/skills/` copies updated identically.
+Currently only `skills/meta/SKILL.md` has this. The other five (`new-feature`, `bug-fix`, `refactor`, `add-domain`, `doc-gardening`) get frontmatter added. Both `skills/` and `.claude/skills/` copies updated identically.
 
 ### 6. extra/ Folder
 
@@ -93,7 +93,7 @@ Currently only `meta/SKILL.md` has this. The other five (`new-feature`, `bug-fix
 
 ### 7. README.md and AGENTS.md Updates
 
-**README.md**: Structure diagram updated to show `extra/`, `templates/`, and accurate file listing.
+**README.md**: Structure diagram updated to show `extra/`, `templates/`, `skills/meta/SKILL.md`, and accurate file listing.
 
 **AGENTS.md**: Three additions to the "Where to Look" table:
 
@@ -111,7 +111,8 @@ Currently only `meta/SKILL.md` has this. The other five (`new-feature`, `bug-fix
 | `templates/pr.template.md` | Create |
 | `templates/adr.template.md` | Create |
 | `templates/commit.template.md` | Create |
-| `extra/links.md` | Move from `meta/links.md` |
+| `extra/links.md` | Create (moved from `meta/links.md`) |
+| `meta/links.md` | Delete (moved to `extra/links.md`) |
 | `docs/design/PATTERNS.md` | Edit — pseudocode examples |
 | `docs/context/DECISIONS.md` | Edit — fix ADR dates |
 | `AGENTS.md` | Edit — add table entries, update skills table |
