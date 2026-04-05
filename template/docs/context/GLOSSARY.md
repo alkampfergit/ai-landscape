@@ -32,6 +32,16 @@
 | Fitness Function               | An objective, automated check that verifies the codebase continues to comply with a recorded architectural decision. Implemented as a structural test, linter rule, or CI gate. |
 | Superseded ADR                 | An ADR whose decision has been replaced by a newer ADR. The original is kept immutable; its status is updated to "Superseded by ADR-NNN". |
 
+## Harness Engineering Terms
+
+| Term                | Definition                                                                                          |
+|---------------------|-----------------------------------------------------------------------------------------------------|
+| Harness             | The orchestration layer surrounding an AI agent — including its skill files, prompts, contracts, adapters, and runtime policy — that shapes how the agent behaves and what it is allowed to do. |
+| Runtime Charter     | The global policy document (or section of AGENTS.md) that specifies coordination semantics, budget constraints, and contract-fulfillment rules shared across all agent tasks, distinct from task-family-specific skill logic. |
+| Artifact Contract   | An explicit specification on a skill or agent step defining required inputs, expected outputs, format constraints, and validation gates. Enables verifier-backed checking at each stage of a workflow. |
+| Failure Taxonomy    | A named catalog of failure modes that can occur in an agent workflow (e.g., missing artifact, verifier failure, tool error, timeout). Naming failures explicitly drives structured recovery rather than blind retry. |
+| State Semantics     | The specification of what state persists across agent steps, how it is stored (e.g., file-backed artifacts vs. in-memory), and how it is reopened after interruption or context truncation. |
+
 ## [Domain 1] Terms
 
 | Term                | Definition                                                        | In Code           |

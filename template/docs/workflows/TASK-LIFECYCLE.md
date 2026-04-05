@@ -97,6 +97,8 @@ Actions:
 
 If a phase fails:
 - **Don't retry blindly**. Diagnose WHY it failed.
+- **Name the failure mode before retrying.** Classify the failure (e.g., missing context, constraint violation, tool error, verifier failure, timeout) before attempting recovery. Unnamed failures lead to blind retries.
 - **Check if context is missing**. Load additional docs if needed.
 - **Check if a constraint is unclear**. If so, clarify it in the relevant doc.
+- **Prefer durable artifacts over in-memory state.** If a phase fails due to context loss or truncation, check whether state was written to a file artifact. File-backed state survives interruptions; in-memory state does not.
 - **If stuck**: Flag for human escalation. Describe what was attempted and what failed.

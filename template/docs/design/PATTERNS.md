@@ -61,7 +61,31 @@ logger.info("Order processed", { orderId, customerId, duration, domain: "orders"
 
 **Why**: Enables agents to use observability data for debugging.
 
+### Externalized Harness Contracts
+
+**Use**: Document the contracts of each skill or agent step explicitly — required inputs, expected outputs, validation gates, and named failure modes. Store these inside the skill file (e.g., `SKILL.md`), not buried in controller code or implicit prompt conventions.
+
+```
+# In SKILL.md
+## Inputs
+- `task_description`: string, required
+## Outputs
+- `PLAN.md`: written to repo root, required
+## Validation Gates
+- Plan must reference at least one file from docs/
+## Failure Modes
+- `missing_context`: required doc not loaded — load it and retry
+- `scope_too_large`: task touches >5 files — split into sub-tasks
+```
+
+**Why**: Harness logic embedded only in code or prompts is non-transferable and non-comparable. Externalizing contracts makes skills portable, verifiable, and improvable without reading implementation internals.
+See: Design Principles P4, P7.
+
 ## Anti-Patterns — Do NOT Use
+
+### ❌ Harness Logic Buried in Code
+
+Embedding orchestration policy (stage order, retry rules, delegation logic, failure recovery) exclusively in controller code or prompts, with no externalized document describing the harness behavior. Skills and agents become non-transferable, non-comparable, and opaque.
 
 ### ❌ God Objects
 
