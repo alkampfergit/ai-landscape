@@ -39,6 +39,10 @@ Actions:
    Skip the ADR if the decision is minimal-scope, temporary, or already covered by an existing ADR.
 4. If the task is complex (touches 3+ files or crosses domain boundaries),
    write a brief plan as a comment or in a `PLAN.md` file.
+5. If the full goal is too large for a single task, identify the smallest
+   building block that unblocks the next step and scope this task to that
+   block only. Deliver building blocks depth-first rather than attempting
+   the entire goal at once.
 
 **Output**: A concrete plan that can be verified before code is written.
 

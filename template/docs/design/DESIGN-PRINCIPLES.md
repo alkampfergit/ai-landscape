@@ -22,6 +22,9 @@ Humans forget. Agents skip context. Tools never do.
 
 **Implication**: Every time you add a new convention, ask: "How will this be
 enforced automatically?" If the answer is "code review," that's insufficient.
+When a failure reveals a missing constraint, encode the fix mechanically so the
+same class of mistake cannot recur — don't just fix the symptom once and move on.
+Each encoded correction raises the floor for all future agent runs.
 
 ## P3: Validate at Boundaries, Trust Within
 
