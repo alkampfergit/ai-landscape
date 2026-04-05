@@ -91,6 +91,47 @@ check_output_matches_spec()
 **Why**: Models are biased toward their first plausible answer. Without an explicit verification step, incomplete or subtly wrong solutions are routinely accepted.
 See: Task Lifecycle Phase 4–5.
 
+### Harness Improvement Flywheel
+
+**Use**: When a failure or recurring correction reveals a missing constraint, encode the fix
+permanently — as a lint rule, CI gate, structural test, or sub-agent — rather than applying
+it once and moving on.
+
+```
+// ONE-OFF (bad): fix the symptom and continue
+agent made a mistake → fix it manually
+
+// FLYWHEEL (good): fix the symptom AND close the gap
+agent made a mistake → fix it → encode constraint so it cannot recur
+   ↳ new lint rule / CI check / AGENTS.md rule / skill update
+```
+
+**Why**: Every encoded correction raises the floor for all future agent runs. Harness
+improvements compound — a better harness enables more complex delegation, which surfaces
+the next gap, which gets encoded, and so on. A codebase with one million agent-generated
+lines is only viable if corrections accumulate rather than repeat.
+See: Design Principle P2.
+
+### Depth-First Task Decomposition
+
+**Use**: When a goal is too large for a single agent task, break it into the smallest
+building block that, once completed, unlocks the next. Deliver building blocks in order
+rather than attempting the full goal at once.
+
+```
+// GOOD: depth-first, incremental
+goal → identify smallest unblocking step → prompt → verify → unlock next step
+
+// BAD: breadth-first, all at once
+goal → prompt for complete solution → overwhelm → incomplete output
+```
+
+**Why**: Large tasks exceed context budgets, produce harder-to-review changes, and
+compound errors. Delivering the smallest meaningful building block first (design,
+data model, interface contract, initial implementation, tests…) keeps each step
+verifiable and builds momentum toward the full goal.
+See: Design Principle P5, P6.
+
 ### Externalized Harness Contracts
 
 **Use**: Document the contracts of each skill or agent step explicitly — required inputs, expected outputs, validation gates, and named failure modes. Store these inside the skill file (e.g., `SKILL.md`), not buried in controller code or implicit prompt conventions.

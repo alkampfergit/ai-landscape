@@ -44,6 +44,8 @@
 | Reasoning Sandwich  | A reasoning-budget pattern in which extended or high-effort reasoning is applied at planning and verification phases, while standard reasoning is used for execution steps. Concentrates thinking compute where mistakes are most costly. |
 | Self-Verification Loop | An explicit harness instruction directing an agent to run tests, check outputs, and re-examine its solution against the original task specification before declaring the task complete. Counteracts model bias toward the first plausible answer. |
 | Context Middleware  | A hook that runs at agent start to discover and inject environmental context (working directory layout, available tools, language runtimes) into the agent's prompt, reducing failed tool-discovery attempts during task execution. |
+| Harness Improvement Flywheel | The compounding process by which each failure-driven correction is encoded permanently as a lint rule, CI gate, structural test, or skill update, raising the floor for all future agent runs. A mature harness enables more complex delegation, which surfaces the next gap, which gets encoded in turn. |
+| Depth-First Decomposition | A task-planning strategy in which a large goal is broken into the smallest building block that, once completed, unlocks the next step. Building blocks are delivered in order rather than attempting the full goal at once, keeping each unit verifiable and context-bounded. |
 
 ## [Domain 1] Terms
 
