@@ -15,10 +15,11 @@ Human Prompt → Understand → Plan → Implement → Validate → Review → M
 
 Actions:
 1. Read the task description / prompt carefully.
-2. Identify which domain(s) and layer(s) are affected.
-3. Load the relevant architecture and design docs for those areas.
-4. Check the quality grade of the affected area.
-5. Identify any ambiguities. If the task is unclear, ask — don't guess.
+2. Survey your environment: identify the directory structure, available tools, and language runtimes relevant to the task. Map the environment at the start to reduce failed discovery attempts later.
+3. Identify which domain(s) and layer(s) are affected.
+4. Load the relevant architecture and design docs for those areas.
+5. Check the quality grade of the affected area.
+6. Identify any ambiguities. If the task is unclear, ask — don't guess.
 
 **Output**: A mental model of what needs to change and where.
 
@@ -65,6 +66,7 @@ Actions:
 3. Verify no dependency rule violations.
 4. If the change affects an API, verify the contract hasn't broken.
 5. If the change affects events, verify producers and consumers are aligned.
+6. Re-read the original task specification and verify the solution actually satisfies it — not just "does it pass." Don't stop at the first working answer.
 
 **Output**: All checks green. No warnings.
 

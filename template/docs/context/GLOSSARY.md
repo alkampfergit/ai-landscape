@@ -41,6 +41,9 @@
 | Artifact Contract   | An explicit specification on a skill or agent step defining required inputs, expected outputs, format constraints, and validation gates. Enables verifier-backed checking at each stage of a workflow. |
 | Failure Taxonomy    | A named catalog of failure modes that can occur in an agent workflow (e.g., missing artifact, verifier failure, tool error, timeout). Naming failures explicitly drives structured recovery rather than blind retry. |
 | State Semantics     | The specification of what state persists across agent steps, how it is stored (e.g., file-backed artifacts vs. in-memory), and how it is reopened after interruption or context truncation. |
+| Reasoning Sandwich  | A reasoning-budget pattern in which extended or high-effort reasoning is applied at planning and verification phases, while standard reasoning is used for execution steps. Concentrates thinking compute where mistakes are most costly. |
+| Self-Verification Loop | An explicit harness instruction directing an agent to run tests, check outputs, and re-examine its solution against the original task specification before declaring the task complete. Counteracts model bias toward the first plausible answer. |
+| Context Middleware  | A hook that runs at agent start to discover and inject environmental context (working directory layout, available tools, language runtimes) into the agent's prompt, reducing failed tool-discovery attempts during task execution. |
 
 ## [Domain 1] Terms
 
