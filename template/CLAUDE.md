@@ -7,6 +7,6 @@ Canonical repository instructions live in [AGENTS.md](AGENTS.md).
 ## What Claude Should Do
 
 1. Read [AGENTS.md](AGENTS.md) first.
-2. This is a **template authoring repository**. The product is the `template/` folder.
-3. All substantive work happens inside `template/`. Do not conflate the authoring repo with the template itself.
+2. Treat [AGENTS.md](AGENTS.md) and the docs it links to as the source of truth.
+3. Use repository skills and workflows exactly as directed from [AGENTS.md](AGENTS.md).
 4. If this file and [AGENTS.md](AGENTS.md) ever disagree, [AGENTS.md](AGENTS.md) wins.
