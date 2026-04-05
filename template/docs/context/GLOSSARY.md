@@ -22,6 +22,16 @@
 | Value Object        | An immutable object defined by its attributes, not identity       | Immutable type     |
 | Boundary            | The interface between two domains or between a domain and external world | API handler, event consumer |
 
+## Documentation & Decision Terms
+
+| Term                          | Definition                                                                                          |
+|-------------------------------|-----------------------------------------------------------------------------------------------------|
+| ADR (Architecture Decision Record) | A document capturing a significant architectural decision: its context, the options considered, the decision made, the rationale, and the consequences. One decision per record. |
+| ADL (Architecture Decision Log)    | The ordered collection of all ADRs for a project. In this template, the ADL lives in `docs/context/DECISIONS.md`. |
+| ASR (Architecturally-Significant Requirement) | A requirement that has a measurable impact on the system's architecture — performance, security, scalability, or structural constraints that narrow architectural choices. |
+| Fitness Function               | An objective, automated check that verifies the codebase continues to comply with a recorded architectural decision. Implemented as a structural test, linter rule, or CI gate. |
+| Superseded ADR                 | An ADR whose decision has been replaced by a newer ADR. The original is kept immutable; its status is updated to "Superseded by ADR-NNN". |
+
 ## [Domain 1] Terms
 
 | Term                | Definition                                                        | In Code           |

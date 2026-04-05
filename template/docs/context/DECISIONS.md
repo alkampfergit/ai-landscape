@@ -3,6 +3,8 @@
 > Every significant architectural decision is recorded here.
 > An ADR captures WHAT was decided, WHY it was decided, and WHAT alternatives were rejected.
 > This prevents future agents (and humans) from re-litigating settled decisions.
+>
+> The collection of all ADRs for a project is the **Architecture Decision Log (ADL)**.
 
 ## When to Write an ADR
 
@@ -13,12 +15,30 @@ Write an ADR when:
 - A dependency rule exception is granted.
 - A convention is established that future code must follow.
 
-Do NOT write an ADR for:
-- Routine implementation choices within established patterns.
+Skip an ADR when:
+- The decision is minimal-scope, low-risk, or already covered by an existing ADR.
+- The change is temporary or time-bound with no lasting architectural effect.
 - Bug fixes that don't change architecture.
 - Minor refactors that don't alter boundaries or dependencies.
 
+## Governance
+
+- **Who can propose**: Any team member or agent working on the codebase.
+- **Who accepts**: The team (or a designated architecture forum). Consensus beats unilateral decisions.
+- **Immutability**: Do not alter an accepted ADR. Amend with a new, dated ADR that supersedes the old one; update the old ADR's status to `Superseded by ADR-NNN`.
+- **After-action review**: Schedule a review ~1 month after acceptance to capture real consequences and update the record with what actually happened.
+
+## Status Lifecycle
+
+```
+Proposed → Accepted → (Deprecated | Superseded by ADR-NNN)
+```
+
 ## ADR Template
+
+See [`templates/adr.template.md`](../../templates/adr.template.md) for the full template with guidance notes.
+
+Quick reference:
 
 ```markdown
 ## ADR-[NNN]: [Title]
@@ -28,21 +48,20 @@ Do NOT write an ADR for:
 **Deciders**: [who made this decision]
 
 ### Context
+[Forces and constraints that prompted this decision]
 
-[What situation prompted this decision? What problem needed solving?]
+### Options Considered
+- **Option A**: [trade-offs]
+- **Option B**: [trade-offs]
 
 ### Decision
+[What was decided — one decision per record]
 
-[What was decided? Be specific.]
+### Rationale
+[Why this option — the decisive pros/cons and reasoning]
 
 ### Consequences
-
-[What are the positive and negative consequences?]
-[What trade-offs were accepted?]
-
-### Alternatives Considered
-
-[What other options were evaluated and why were they rejected?]
+[Follow-on decisions, constraints imposed, after-action review date]
 ```
 
 ## Active ADRs

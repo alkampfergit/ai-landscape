@@ -29,7 +29,13 @@ Actions:
 Actions:
 1. List the files that will be created or modified.
 2. Identify if any new dependencies (packages, cross-domain imports) are needed.
-3. Check if the change requires a new ADR (architectural decision).
+3. Check if the change requires a new ADR. Write one when:
+   - A new technology, library, or framework is adopted.
+   - A structural pattern is chosen over alternatives.
+   - A domain boundary is created, split, or merged.
+   - A convention is established that future code must follow.
+   - A dependency rule exception is granted.
+   Skip the ADR if the decision is minimal-scope, temporary, or already covered by an existing ADR.
 4. If the task is complex (touches 3+ files or crosses domain boundaries),
    write a brief plan as a comment or in a `PLAN.md` file.
 
