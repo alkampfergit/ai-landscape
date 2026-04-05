@@ -152,11 +152,36 @@ See: Design Principle P5, P6.
 **Why**: Harness logic embedded only in code or prompts is non-transferable and non-comparable. Externalizing contracts makes skills portable, verifiable, and improvable without reading implementation internals.
 See: Design Principles P4, P7.
 
+### Sub-Agents as Context Firewalls
+
+**Use**: Delegate distinct tasks to sub-agents to isolate their execution context from the parent session. Each sub-agent sees only the context relevant to its task.
+
+```
+// GOOD: parent session delegates, sub-agent executes in isolation
+parent agent  →  defines task boundary  →  spawns sub-agent
+sub-agent     →  executes with scoped context  →  returns result
+parent agent  →  integrates result cleanly
+
+// BAD: single long-running session accumulates all intermediate context
+one agent → all tasks → growing context → drift and incoherence
+```
+
+**Why**: Over long sessions, accumulated intermediate context pollutes reasoning and causes drift. Sub-agents act as context firewalls — each starts fresh with only the context its task requires, and terminates when done. This preserves coherence without requiring the parent to manually manage or trim its context.
+See: Design Principles P5, P6, P9.
+
 ## Anti-Patterns — Do NOT Use
 
 ### ❌ Unguided Agent Verification
 
 Assuming an agent will naturally verify its solution. Without an explicit self-verification step (re-reading the task spec, running tests, checking outputs), agents stop at the first answer that seems plausible — even when it is incomplete or incorrect.
+
+### ❌ Capability Bloat
+
+Installing MCP servers, skills, or tool integrations "just in case" they might be useful. Each unused capability adds noise to the model's available-tool context, increases configuration surface area, and can cause the agent to reach for inappropriate tools. Add a capability only when the agent demonstrably needs it and existing tools are insufficient.
+
+### ❌ Sub-Agent Tool Micro-Optimization
+
+Over-restricting which tools each sub-agent can access before a specific problem is observed. Fine-grained per-sub-agent tool access control causes tool thrash — the agent wastes cycles discovering it lacks a needed tool, requesting alternatives, or failing silently. Most coding agents lack a robust configuration surface for this. Give sub-agents the tools they need; pare down only in response to an observed problem.
 
 ### ❌ Harness Logic Buried in Code
 

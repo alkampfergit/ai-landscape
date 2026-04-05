@@ -30,6 +30,23 @@ Each entry follows this structure:
 
 <!-- ingest-link appends entries below this line -->
 
+### [Skill Issue: Harness Engineering for Coding Agents](https://www.humanlayer.dev/blog/skill-issue-harness-engineering-for-coding-agents)
+- **Added**: 2026-04-05
+- **Category**: methodology
+- **Summary**: A practical HumanLayer case study on harness engineering for coding agents. The central thesis is that poor agent performance is almost always a harness problem, not a model problem — "it's just a skill issue." The article documents what failed and what worked in real-world usage: over-engineering the harness upfront (installing MCP servers and skills "just in case," running full test suites after every session, micro-optimizing sub-agent tool access) consistently backfires and produces tool thrash. What actually works is starting simple, adding harness configuration only after real failures, distributing battle-tested configs at the repository level, and using sub-agents as context firewalls to isolate execution context and preserve coherence over long sessions. The harness levers that provide most leverage are: Agentfiles, MCP servers, skills, sub-agents, hooks, and back-pressure.
+- **Key insights**:
+  - Sub-agents function as "context firewalls" — isolating execution context so that long sessions remain coherent by preventing context pollution between unrelated tasks
+  - Over-engineering the harness upfront (before hitting real failures) is a primary anti-pattern — resist adding capability until the agent demonstrably needs it
+  - Installing MCP servers and skills "just in case" adds noise to the model's available-tool context and degrades performance
+  - Running the full test suite after every agent session is wasteful; run targeted subsets instead
+  - Micro-optimizing sub-agent tool access causes tool thrash and worse outcomes — most coding agents lack a robust configuration surface for it
+  - Start simple: add harness configuration only when the agent actually fails at something specific
+  - Distribute battle-tested configurations at the repository level so the whole team benefits automatically
+  - Optimize for iteration speed (design → test → iterate), not for the probability of one-shotting on the first attempt
+  - Give the agent a broad capability set first, then pare down what is exposed based on observed need
+  - Harness levers: Agentfiles, MCP servers, skills, sub-agents, hooks, back-pressure
+- **Template documents updated**: `template/docs/design/PATTERNS.md`, `template/docs/design/DESIGN-PRINCIPLES.md`
+
 ### [Improving Deep Agents with Harness Engineering](https://blog.langchain.com/improving-deep-agents-with-harness-engineering/)
 - **Added**: 2026-04-05
 - **Category**: methodology

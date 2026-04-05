@@ -72,6 +72,12 @@ wiring that requires deep framework knowledge.
 **Implication**: Prefer dependency injection. Prefer explicit configuration over
 convention. Prefer typed enums over string constants.
 
+## P9: Iterate the Harness, Don't Pre-Optimize It
+
+Build the harness incrementally. Start with the minimum configuration that lets the agent run the task. Add a new capability, hook, or enforcement rule only when the agent actually fails — and only to address the specific failure observed. Optimize for the speed of the design-test-iterate loop, not for the probability of one-shotting a task on the first attempt.
+
+**Implication**: Resist installing MCP servers, skills, or rules "just in case." A harness shaped by real failures is leaner and more effective than one designed around anticipated failures. Battle-tested configurations, once validated, should be committed at the repository level so the whole team benefits automatically.
+
 ## P8: Fail Fast, Fail Loud
 
 When something goes wrong, the system should report it immediately with enough
