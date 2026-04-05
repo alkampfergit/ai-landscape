@@ -61,6 +61,36 @@ logger.info("Order processed", { orderId, customerId, duration, domain: "orders"
 
 **Why**: Enables agents to use observability data for debugging.
 
+### Reasoning Sandwich
+
+**Use**: Concentrate extended or high-effort reasoning at the planning and verification phases of a task. Use standard reasoning for routine execution steps.
+
+```
+Plan     → extended reasoning (scope decisions, approach selection)
+Implement → standard reasoning (code writing, tool calls)
+Verify   → extended reasoning (solution vs. original task spec, edge cases)
+```
+
+**Why**: Mistakes made during planning or missed during verification are the most costly to fix. Applying maximum reasoning compute at those two points while using lighter compute for execution avoids timeouts on straightforward steps without sacrificing quality.
+See: Design Principles P1, P8.
+
+### Self-Verification Loop
+
+**Use**: At the end of an implementation, explicitly re-examine the solution against the original task specification and run the relevant tests before declaring the task complete.
+
+```
+// GOOD: verify solution before closing
+run_tests()
+re_read_task_spec()
+check_output_matches_spec()
+
+// BAD: stop at "it runs"
+// assumes first working answer is the correct answer
+```
+
+**Why**: Models are biased toward their first plausible answer. Without an explicit verification step, incomplete or subtly wrong solutions are routinely accepted.
+See: Task Lifecycle Phase 4–5.
+
 ### Externalized Harness Contracts
 
 **Use**: Document the contracts of each skill or agent step explicitly — required inputs, expected outputs, validation gates, and named failure modes. Store these inside the skill file (e.g., `SKILL.md`), not buried in controller code or implicit prompt conventions.
@@ -82,6 +112,10 @@ logger.info("Order processed", { orderId, customerId, duration, domain: "orders"
 See: Design Principles P4, P7.
 
 ## Anti-Patterns — Do NOT Use
+
+### ❌ Unguided Agent Verification
+
+Assuming an agent will naturally verify its solution. Without an explicit self-verification step (re-reading the task spec, running tests, checking outputs), agents stop at the first answer that seems plausible — even when it is incomplete or incorrect.
 
 ### ❌ Harness Logic Buried in Code
 
