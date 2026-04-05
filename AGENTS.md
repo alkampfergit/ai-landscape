@@ -20,6 +20,11 @@ a ready-to-use bootstrap for agent-first, harness-engineered repositories.
 ├── CLAUDE.md          ← Claude Code auto-load (redirects here)
 ├── README.md          ← Human-facing overview of this authoring repo
 ├── .gitignore         ← Root ignore rules for this repo
+├── knowledge/         ← External sources that inform the template
+│   └── links.md       ← Master index of ingested URLs and their insights
+├── .claude/           ← Authoring-repo skills (distinct from template skills)
+│   └── skills/
+│       └── ingest-link/SKILL.md  ← Ingest a URL, update docs, patch template
 └── template/          ← The harness engineering template (the product)
     ├── AGENTS.md      ← Template's own agent entry point
     ├── CLAUDE.md      ← Template's Claude Code bootstrap
@@ -31,7 +36,7 @@ a ready-to-use bootstrap for agent-first, harness-engineered repositories.
     ├── meta/          ← Harness engineering guides and skill authoring notes
     ├── extra/         ← Human reference links
     ├── .github/       ← GitHub-specific files (PR template, Copilot instructions)
-    └── .claude/       ← Claude Code skills and agent configuration
+    └── .claude/       ← Template's Claude Code skills and agent configuration
 ```
 
 ## Harness Model (for this repo)
@@ -48,6 +53,7 @@ a ready-to-use bootstrap for agent-first, harness-engineered repositories.
 3. When editing template docs, preserve the progressive-disclosure pattern: `template/AGENTS.md` is the map, linked docs are the detail.
 4. Do not introduce project-specific content into the template. It must stay general-purpose.
 5. When adding or renaming markdown files inside `template/`, run the `agents-md-sync` skill to keep `template/AGENTS.md` in sync.
+6. When a new external source should inform the template, use the `ingest-link` skill — do not manually edit `knowledge/links.md` or template docs in isolation.
 
 ## Where to Look
 
@@ -60,6 +66,16 @@ a ready-to-use bootstrap for agent-first, harness-engineered repositories.
 | Bootstrap prompt for new projects      | [template/BOOTSTRAP.md](template/BOOTSTRAP.md) |
 | Harness engineering theory             | [template/meta/hareness-foundation.md](template/meta/hareness-foundation.md) |
 | Skill authoring guide                  | [template/meta/skill-guide.md](template/meta/skill-guide.md) |
+| External knowledge sources index       | [knowledge/links.md](knowledge/links.md) |
+| Authoring-repo skills                  | [.claude/skills/](.claude/skills/) |
+
+## Authoring Skills
+
+Skills for maintaining this authoring repository (distinct from skills bundled in the template).
+
+| Skill | Purpose | Location |
+|-------|---------|----------|
+| `ingest-link` | Fetch a URL, extract insights, update knowledge index, patch template docs | [.claude/skills/ingest-link/SKILL.md](.claude/skills/ingest-link/SKILL.md) |
 
 ## Before You Make Changes
 
