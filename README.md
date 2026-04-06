@@ -25,6 +25,12 @@ When you instantiate the template in a new project, you get:
 2. Paste the contents of `template/BOOTSTRAP.md` to your AI assistant to auto-configure the docs for your project.
 3. Start building — the harness is ready.
 
+## Knowledge Base
+
+External sources that inform the template are tracked in [`knowledge/links.md`](knowledge/links.md) —
+a curated index of articles, papers, and case studies with brief descriptions and links to full notes.
+Use the `ingest-link` skill to add new sources.
+
 ## Contributing to the Template
 
 All improvements to the template go into the `template/` folder.
