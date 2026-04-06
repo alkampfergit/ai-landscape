@@ -84,6 +84,10 @@ Actions (agent self-review):
 3. Check for missing edge cases.
 4. Verify documentation is updated if behavior changed.
 5. Run the [REVIEW-CHECKLIST.md](REVIEW-CHECKLIST.md).
+6. Focus review effort on high-leverage artifacts: a flawed research summary or
+   plan cascades into many bad lines of code. When reviewing multi-phase work,
+   verify the research and planning artifacts first — catching errors there
+   prevents far more rework than catching them in implementation code.
 
 **Output**: A PR ready for human review (if required) or auto-merge.
 
