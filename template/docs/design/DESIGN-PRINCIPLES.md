@@ -52,7 +52,11 @@ can find what they need incrementally. Start with the map (AGENTS.md),
 drill into architecture, then into domain-specific details.
 
 **Implication**: Keep files focused. One topic per document. Link between
-documents rather than duplicating information.
+documents rather than duplicating information. Be mindful of the instruction
+budget: frontier LLMs follow ~150–200 instructions reliably, and the agent's
+system prompt already consumes ~50. Every instruction added to the top-level
+agent file competes with task-specific context. Bundle detailed instructions
+inside skill files so they load only when relevant.
 
 ## P6: Small, Composable Units
 

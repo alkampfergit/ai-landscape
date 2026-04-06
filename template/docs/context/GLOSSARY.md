@@ -46,6 +46,8 @@
 | Context Middleware  | A hook that runs at agent start to discover and inject environmental context (working directory layout, available tools, language runtimes) into the agent's prompt, reducing failed tool-discovery attempts during task execution. |
 | Harness Improvement Flywheel | The compounding process by which each failure-driven correction is encoded permanently as a lint rule, CI gate, structural test, or skill update, raising the floor for all future agent runs. A mature harness enables more complex delegation, which surfaces the next gap, which gets encoded in turn. |
 | Depth-First Decomposition | A task-planning strategy in which a large goal is broken into the smallest building block that, once completed, unlocks the next step. Building blocks are delivered in order rather than attempting the full goal at once, keeping each unit verifiable and context-bounded. |
+| Instruction Budget | The finite number of distinct instructions a frontier LLM can follow with reasonable consistency in a single context window — approximately 150–200 for current models. The agent's own system prompt consumes a significant share (~50 instructions for Claude Code), leaving limited headroom for project rules, skills, and task-specific guidance. Exceeding the budget causes instructions to be silently ignored. |
+| Back-Pressure | Automated feedback from deterministic tools — type checkers, linters, test runners, build systems — that signals errors to the agent immediately after an action, enabling self-correction without human intervention. Back-pressure is the primary mechanism that allows agents to work on longer-horizon tasks autonomously; without it, errors compound silently. |
 
 ## [Domain 1] Terms
 

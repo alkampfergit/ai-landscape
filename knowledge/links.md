@@ -32,6 +32,7 @@ Each entry follows this structure:
 
 ### [Skill Issue: Harness Engineering for Coding Agents](https://www.humanlayer.dev/blog/skill-issue-harness-engineering-for-coding-agents)
 - **Added**: 2026-04-05
+- **Updated**: 2026-04-06
 - **Category**: methodology
 - **Summary**: A practical HumanLayer case study on harness engineering for coding agents. The central thesis is that poor agent performance is almost always a harness problem, not a model problem — "it's just a skill issue." The article documents what failed and what worked in real-world usage: over-engineering the harness upfront (installing MCP servers and skills "just in case," running full test suites after every session, micro-optimizing sub-agent tool access) consistently backfires and produces tool thrash. What actually works is starting simple, adding harness configuration only after real failures, distributing battle-tested configs at the repository level, and using sub-agents as context firewalls to isolate execution context and preserve coherence over long sessions. The harness levers that provide most leverage are: Agentfiles, MCP servers, skills, sub-agents, hooks, and back-pressure.
 - **Key insights**:
@@ -45,7 +46,11 @@ Each entry follows this structure:
   - Optimize for iteration speed (design → test → iterate), not for the probability of one-shotting on the first attempt
   - Give the agent a broad capability set first, then pare down what is exposed based on observed need
   - Harness levers: Agentfiles, MCP servers, skills, sub-agents, hooks, back-pressure
-- **Template documents updated**: `template/docs/design/PATTERNS.md`, `template/docs/design/DESIGN-PRINCIPLES.md`
+  - Frontier LLMs can follow ~150–200 instructions with reasonable consistency; the agent's system prompt already consumes ~50 of that budget — keep top-level instruction files minimal
+  - Back-pressure from automated feedback loops (type systems, linters, build tools) enables agents to work on longer-horizon tasks without constant human intervention
+  - Progressive disclosure applies to skills specifically: bundle context-specific instructions inside skill files rather than in the top-level agent file, so they load only when relevant
+  - Focus human review on research and planning artifacts, not just code — a flawed plan cascades into many bad lines of code
+- **Template documents updated**: `template/docs/design/PATTERNS.md`, `template/docs/design/DESIGN-PRINCIPLES.md`, `template/docs/context/GLOSSARY.md`, `template/docs/workflows/TASK-LIFECYCLE.md`
 
 ### [Improving Deep Agents with Harness Engineering](https://blog.langchain.com/improving-deep-agents-with-harness-engineering/)
 - **Added**: 2026-04-05
