@@ -80,7 +80,7 @@ Work through each phase in order. Do not skip phases. Mark each phase complete b
 
 - <file> — <one-line reason>
 - …
-(fill in after Phase 5; write "none" if no changes are warranted)
+(fill in during Phase 7; write "none" if no changes are warranted)
 ```
 
 4. Write the file to `knowledge/sources/<slug>.md`.
@@ -91,7 +91,7 @@ Work through each phase in order. Do not skip phases. Mark each phase complete b
 
 1. Read `knowledge/links.md`.
 2. Check whether an entry for `url` already exists (compare URLs exactly).
-   - If it exists: update the existing entry in place with refreshed content. Note the update date.
+   - If it exists: update the existing entry in place with refreshed content.
    - If it does not exist: append a new entry after the `<!-- ingest-link appends entries below this line -->` marker.
 3. Format the index entry as:
 
