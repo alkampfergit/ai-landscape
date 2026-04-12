@@ -30,6 +30,21 @@ Each entry follows this structure:
 
 <!-- ingest-link appends entries below this line -->
 
+### [User Journeys vs. User Flows](https://www.nngroup.com/articles/user-journeys-vs-user-flows/)
+- **Added**: 2026-04-12
+- **Category**: methodology
+- **Summary**: Nielsen Norman Group defines user journeys as scenario-based sequences of steps a user takes to accomplish a high-level goal, usually across channels and over time, contextualized with thoughts, emotions, and pain points. User flows, by contrast, describe the specific discrete interactions within a product for a common task. Journeys are the holistic macro view (why and what the user experiences); flows are the micro view (how they interact step by step). Both are useful and complementary — journeys identify which documentation needs to exist and why, flows describe how documents link to each other.
+- **Key insights**:
+  - A user journey is the end-to-end experience over time — not just the steps taken, but the thoughts, emotions, pain points, and confidence shifts at each phase
+  - User flows are the specific discrete interactions within a single phase — the micro-level complement to the macro-level journey
+  - Journey mapping starts with a timeline of user goals and actions, then adds thoughts and emotions to create a narrative
+  - Journeys answer "what is this person trying to accomplish and what do they experience?"; flows answer "what specific steps do they take?"
+  - Both views should be captured: journeys tell you which documents need to exist; flows tell you how they link together
+  - Journey phases can be made concrete and testable through user stories ("As a [role], I want [goal], so that [benefit]")
+  - Documentation earns its place by serving identified journey phases — docs that no journey phase reaches for are candidates for pruning
+  - Progressive disclosure is the mechanism that maps to journey phases: the right information surfaces at the right moment in the experience
+- **Template documents updated**: `template/docs/design/DESIGN-PRINCIPLES.md`, `template/meta/hareness-foundation.md`, `template/docs/context/GLOSSARY.md`, `template/AGENTS.md`, `template/.claude/skills/doc-gardening/SKILL.md`, `template/templates/user-story.template.md` (new)
+
 ### [Skill Issue: Harness Engineering for Coding Agents](https://www.humanlayer.dev/blog/skill-issue-harness-engineering-for-coding-agents)
 - **Added**: 2026-04-05
 - **Updated**: 2026-04-06

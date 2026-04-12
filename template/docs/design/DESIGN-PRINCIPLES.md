@@ -45,38 +45,75 @@ effectively does not exist.
 **Implication**: When making a design decision in conversation, immediately
 capture it as an ADR in `docs/context/DECISIONS.md`.
 
-## P5: Progressive Disclosure — Organized by User Journeys
+## P5: Progressive Disclosure — Shaped by User Journeys
 
 Don't load everything at once. Structure knowledge so agents (and humans)
 can find what they need incrementally. Start with the map (AGENTS.md),
 drill into architecture, then into domain-specific details.
 
-The organizing principle behind progressive disclosure is the **user journey**:
-a concrete path someone follows to accomplish a goal in the repository. Every
-document earns its place by serving at least one identified journey. Documentation
-that serves no journey is dead weight; a journey with missing documentation is a
-trap that forces guesswork.
+**Why documentation exists: it serves user journeys.** A user journey (in the
+UX sense, per Nielsen Norman Group) is the end-to-end experience a person or
+agent goes through to accomplish a high-level goal — across phases, over time,
+including not just the actions taken but the thoughts, pain points, and
+confidence shifts along the way. Documentation that does not serve an identified
+journey is dead weight that rots unnoticed. Documentation that leaves a gap in
+a journey forces the user into guesswork — the most expensive failure mode in
+an agent-first workflow.
 
-Typical journeys and the disclosure depth they require:
+Progressive disclosure is the mechanism that makes journeys smooth: it ensures
+the right document surfaces at the right phase of the journey — not all at once
+(overwhelming), not too late (frustrating).
 
-| Journey                        | Entry point     | Progressive depth                                      |
-|--------------------------------|-----------------|--------------------------------------------------------|
-| Orient to the codebase         | AGENTS.md       | → ARCHITECTURE.md → domain-specific docs               |
-| Add a new feature              | AGENTS.md       | → skill `new-feature` → PATTERNS.md → domain docs      |
-| Fix a bug                      | AGENTS.md       | → skill `bug-fix` → QUALITY-GRADES.md → domain docs    |
-| Make an architectural decision | AGENTS.md       | → DECISIONS.md → DESIGN-PRINCIPLES.md → ARCHITECTURE.md|
-| Onboard a new contributor      | README.md       | → AGENTS.md → GLOSSARY.md → TASK-LIFECYCLE.md          |
-| Assess area health             | QUALITY-GRADES.md| → CODE-STANDARDS.md → domain-specific tests            |
+**Identifying journeys.** Each repository should maintain a small set of
+named user journeys that represent the most common high-level goals. For each
+journey, map the phases, the touchpoints (which docs, skills, and tools are
+reached for), the user's likely questions and pain points at each phase, and
+where the journey breaks down without proper documentation.
 
-Each row is a journey. Each arrow is a disclosure step — the reader loads the
-next document only when the current one is insufficient. If a journey requires
-more than 3–4 hops to reach actionable detail, the disclosure chain is too deep
-and should be flattened.
+Typical journeys for a harness-engineered repository:
+
+| Journey                   | Phases (high-level)                                             |
+|---------------------------|-----------------------------------------------------------------|
+| Onboard to the codebase   | Orient → explore architecture → understand conventions → first task |
+| Deliver a feature         | Understand task → plan approach → implement → validate → ship   |
+| Diagnose and fix a bug    | Reproduce → locate root cause → fix → verify → ship             |
+| Make a design decision    | Research context → evaluate options → decide → record ADR       |
+| Assess and improve quality| Survey health → identify debt → plan remediation → execute      |
+
+Each phase is a moment in the journey where the user needs specific context.
+Progressive disclosure means each phase loads only the documents relevant to
+that moment. If a user in the "plan approach" phase has to read the entire
+architecture suite before finding what they need, the disclosure is too flat.
+If they cannot find the relevant patterns doc at all, the journey is broken.
+
+**Making journeys concrete with user stories.** Each journey phase can be
+expressed as one or more user stories — short narratives that capture a
+documentation need from a specific user's perspective:
+
+> *As a [role], I want [goal], so that [benefit].*
+
+User stories make journey phases testable: a story is satisfied when the
+documentation it describes is reachable at the right journey phase. Stories
+that no document satisfies are gaps; documents that no story references are
+candidates for pruning.
+
+Example stories for the "Deliver a feature" journey:
+
+| Phase       | User story |
+|-------------|-----------|
+| Understand  | As an agent starting a feature task, I want to find the relevant domain docs from AGENTS.md, so that I understand the boundaries before planning. |
+| Plan        | As an engineer planning a cross-domain feature, I want to see dependency rules and domain contracts, so that I know which boundaries I must respect. |
+| Implement   | As an agent writing code, I want the preferred patterns for this codebase loaded in context, so that I produce consistent, reviewable code. |
+| Validate    | As an agent verifying a change, I want a checklist of what "done" means, so that I do not declare success prematurely. |
+| Ship        | As an engineer reviewing a PR, I want to see which ADR applies and whether the quality grade changed, so that I can assess architectural impact. |
+
+Use the [user-story template](../../templates/user-story.template.md) when
+authoring new stories during journey mapping sessions.
 
 **Implication**: Keep files focused. One topic per document. Link between
 documents rather than duplicating information. When adding or reviewing a
-document, identify which journey it serves and verify the disclosure chain
-from entry point to that document is intact. Be mindful of the instruction
+document, identify which journey phase it serves and verify it is reachable
+at that phase without unnecessary detours. Be mindful of the instruction
 budget: frontier LLMs follow ~150–200 instructions reliably, and the agent's
 system prompt already consumes ~50. Every instruction added to the top-level
 agent file competes with task-specific context. Bundle detailed instructions

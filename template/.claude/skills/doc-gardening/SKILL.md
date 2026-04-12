@@ -70,10 +70,10 @@ these paths.
 
 ### 6. User Journey Coverage
 
-- [ ] Each identified user journey in [DESIGN-PRINCIPLES.md § P5](../../docs/design/DESIGN-PRINCIPLES.md) has a complete disclosure chain — every document in the chain exists and links to the next.
-- [ ] No document in `docs/` is orphaned (unreachable from any journey's disclosure chain or from AGENTS.md).
-- [ ] No journey requires more than 3–4 hops from entry point to actionable detail.
-- [ ] When a new skill or doc is added, at least one journey row in P5 references it.
+- [ ] Each identified user journey in [DESIGN-PRINCIPLES.md § P5](../../docs/design/DESIGN-PRINCIPLES.md) can be walked end-to-end: every phase has reachable touchpoints (docs, skills, tools) and no broken links.
+- [ ] No document in `docs/` is orphaned — every doc is reachable from at least one journey phase or from AGENTS.md.
+- [ ] Pain points logged in previous retrospectives have been addressed (missing docs added, broken links fixed, disclosure flattened).
+- [ ] When a new skill or doc is added, it maps to at least one journey phase.
 
 ### 7. Code Comment Hygiene
 

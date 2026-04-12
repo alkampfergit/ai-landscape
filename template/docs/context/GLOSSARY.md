@@ -36,10 +36,11 @@
 
 | Term                          | Definition                                                                                          |
 |-------------------------------|-----------------------------------------------------------------------------------------------------|
-| User Journey                  | A concrete, ordered path through repository documents and skills that a human or agent follows to accomplish a specific goal (e.g., "fix a bug," "add a feature," "onboard to the codebase"). Every document should be reachable from at least one identified journey. Journeys follow progressive disclosure: each step loads only the next document needed. |
-| Progressive Disclosure        | A documentation structure where knowledge is layered from high-level orientation (AGENTS.md) to progressively deeper detail (architecture → domain → patterns). Readers load the next layer only when the current one is insufficient. Organized around user journeys — each journey defines a disclosure chain through the docs. See Design Principle P5. |
-| Disclosure Chain              | The specific sequence of documents a user journey traverses, from entry point to actionable detail. Each link in the chain is an arrow in the journey map. If a chain exceeds 3–4 hops, it should be flattened. |
-| Orphaned Document             | A document that no identified user journey references. Candidates for removal, integration into a journey-reachable doc, or explicit linking from AGENTS.md. |
+| User Journey                  | The end-to-end experience a person or agent goes through to accomplish a high-level goal — across phases, over time. Includes actions, touchpoints (docs, skills, tools), thoughts, pain points, and confidence shifts at each phase. Borrowed from UX design (Nielsen Norman Group). Documentation earns its place by serving identified journey phases. See Design Principle P5. |
+| User Flow                     | The specific sequence of discrete interactions within a single journey phase — e.g., "load AGENTS.md → open skill file → read PATTERNS.md." Journeys are the holistic why; flows are the concrete how. |
+| User Story                    | A short narrative in the form "As a [role], I want [goal], so that [benefit]" that captures a documentation need from the perspective of a specific user at a specific journey phase. User stories make journey phases concrete and testable. |
+| Progressive Disclosure        | A documentation structure where knowledge is layered from high-level orientation (AGENTS.md) to progressively deeper detail (architecture → domain → patterns). Readers load the next layer only when the current one is insufficient. Shaped by user journeys — each journey phase determines what information should be available at that point. See Design Principle P5. |
+| Orphaned Document             | A document that no identified user journey phase reaches for. Candidates for removal, integration into a journey-reachable doc, or explicit linking from AGENTS.md. |
 
 ## Harness Engineering Terms
 
