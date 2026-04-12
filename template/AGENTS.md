@@ -20,7 +20,7 @@
 ## Default Rules
 
 1. The repository is the single source of truth. If knowledge matters, store it here.
-2. Use progressive disclosure shaped by **user journeys**. Each document exists because it serves a phase of an identified journey (onboard, deliver feature, fix bug, make decision). Load only what the current journey phase requires. See [DESIGN-PRINCIPLES.md § P5](docs/design/DESIGN-PRINCIPLES.md).
+2. Use progressive disclosure shaped by **user journeys**. Each document exists because it serves a phase of an identified user journey. Load only what the current journey phase requires. See [DESIGN-PRINCIPLES.md § P5](docs/design/DESIGN-PRINCIPLES.md) for the canonical journey list.
 3. Follow the task lifecycle before changing code: understand, plan, implement, validate, review, merge.
 4. Prefer boring, legible, well-understood patterns over clever abstractions.
 5. Enforce important rules mechanically with CI, linting, structural tests, or scripts.

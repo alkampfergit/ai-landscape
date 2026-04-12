@@ -43,7 +43,7 @@ Each entry follows this structure:
   - Journey phases can be made concrete and testable through user stories ("As a [role], I want [goal], so that [benefit]")
   - Documentation earns its place by serving identified journey phases — docs that no journey phase reaches for are candidates for pruning
   - Progressive disclosure is the mechanism that maps to journey phases: the right information surfaces at the right moment in the experience
-- **Template documents updated**: `template/docs/design/DESIGN-PRINCIPLES.md`, `template/meta/hareness-foundation.md`, `template/docs/context/GLOSSARY.md`, `template/AGENTS.md`, `template/.claude/skills/doc-gardening/SKILL.md`, `template/templates/user-story.template.md` (new)
+- **Template documents updated**: `template/docs/design/DESIGN-PRINCIPLES.md`, `template/meta/hareness-foundation.md` (note: filename pre-dates this change), `template/docs/context/GLOSSARY.md`, `template/AGENTS.md`, `template/.claude/skills/doc-gardening/SKILL.md`, `template/templates/user-story.template.md` (new)
 
 ### [Skill Issue: Harness Engineering for Coding Agents](https://www.humanlayer.dev/blog/skill-issue-harness-engineering-for-coding-agents)
 - **Added**: 2026-04-05

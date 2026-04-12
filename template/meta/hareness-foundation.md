@@ -117,6 +117,7 @@ The corrective principle is borrowed from UX design: anchor documentation to **u
 | Deliver a feature | Understand → plan → implement → validate → ship | AGENTS.md, `new-feature` skill, PATTERNS.md, domain docs, REVIEW-CHECKLIST.md |
 | Diagnose and fix a bug | Reproduce → locate → fix → verify → ship | AGENTS.md, `bug-fix` skill, QUALITY-GRADES.md, domain docs |
 | Make a design decision | Research → evaluate → decide → record | ARCHITECTURE.md, DESIGN-PRINCIPLES.md, DECISIONS.md |
+| Assess and improve quality | Survey health → identify debt → plan remediation → execute | QUALITY-GRADES.md, CODE-STANDARDS.md, `refactor` skill, `doc-gardening` skill |
 
 This approach transforms documentation maintenance from "keep everything up to date" (unbounded, often neglected) into "keep identified journeys smooth" (scoped, testable, prioritizable).
 
