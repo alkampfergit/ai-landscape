@@ -32,6 +32,15 @@
 | Fitness Function               | An objective, automated check that verifies the codebase continues to comply with a recorded architectural decision. Implemented as a structural test, linter rule, or CI gate. |
 | Superseded ADR                 | An ADR whose decision has been replaced by a newer ADR. The original is kept immutable; its status is updated to "Superseded by ADR-NNN". |
 
+## Documentation & Journey Terms
+
+| Term                          | Definition                                                                                          |
+|-------------------------------|-----------------------------------------------------------------------------------------------------|
+| User Journey                  | A concrete, ordered path through repository documents and skills that a human or agent follows to accomplish a specific goal (e.g., "fix a bug," "add a feature," "onboard to the codebase"). Every document should be reachable from at least one identified journey. Journeys follow progressive disclosure: each step loads only the next document needed. |
+| Progressive Disclosure        | A documentation structure where knowledge is layered from high-level orientation (AGENTS.md) to progressively deeper detail (architecture → domain → patterns). Readers load the next layer only when the current one is insufficient. Organized around user journeys — each journey defines a disclosure chain through the docs. See Design Principle P5. |
+| Disclosure Chain              | The specific sequence of documents a user journey traverses, from entry point to actionable detail. Each link in the chain is an arrow in the journey map. If a chain exceeds 3–4 hops, it should be flattened. |
+| Orphaned Document             | A document that no identified user journey references. Candidates for removal, integration into a journey-reachable doc, or explicit linking from AGENTS.md. |
+
 ## Harness Engineering Terms
 
 | Term                | Definition                                                                                          |

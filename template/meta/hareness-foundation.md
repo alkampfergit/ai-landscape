@@ -89,7 +89,28 @@ docs/
 └── SECURITY.md
 ```
 
-### 4.3 Why Monolithic Instruction Files Fail
+### 4.3 User Journeys as the Rationale for Documentation
+
+A common failure mode in agent-first repositories is documentation that exists "because it should" rather than because it serves a concrete purpose. Over time, unmotivated documentation rots — no one updates it because no one depends on it, and its decay goes unnoticed until an agent follows a stale instruction into a dead end.
+
+The corrective principle is to anchor every document to one or more **user journeys**: the specific paths that humans and agents walk through the repository to accomplish a goal. A journey is not an abstract persona exercise — it is a concrete sequence of documents and skills loaded in order as the task demands progressively deeper context.
+
+**Examples of journeys:**
+
+- *"Fix a bug in domain X"* → AGENTS.md → `bug-fix` skill → QUALITY-GRADES.md → domain-specific docs → PATTERNS.md
+- *"Understand why the system is structured this way"* → AGENTS.md → ARCHITECTURE.md → DECISIONS.md → DESIGN-PRINCIPLES.md
+- *"Add a feature that crosses domain boundaries"* → AGENTS.md → `new-feature` skill → DOMAIN-BOUNDARIES.md → DEPENDENCY-RULES.md
+
+Each arrow represents a progressive disclosure step. The reader (human or agent) loads the next document only when the current one is insufficient for the task at hand. This has several practical consequences:
+
+1. **Documentation earns its place.** Every document must be reachable from at least one journey. Orphaned documents — those that no journey references — are candidates for removal or integration.
+2. **Disclosure depth is bounded.** If a journey requires more than 3–4 hops from the entry point to reach actionable information, the chain is too deep. Flatten it by promoting critical information upward or merging intermediate documents.
+3. **Maintenance is journey-scoped.** When reviewing documentation, walk the journey end-to-end rather than checking documents in isolation. A document that is individually correct but unreachable from any journey is effectively invisible.
+4. **Gaps are detectable.** If an agent fails because it lacked context, trace the journey it was following. The gap is the missing or broken link in that journey's disclosure chain — not a generic "documentation problem."
+
+This approach transforms documentation maintenance from "keep everything up to date" (unbounded, often neglected) into "keep identified journeys navigable" (scoped, testable, prioritizable).
+
+### 4.4 Why Monolithic Instruction Files Fail
 
 The team explicitly documented why a single large AGENTS.md fails for agent workflows:
 
@@ -98,7 +119,7 @@ The team explicitly documented why a single large AGENTS.md fails for agent work
 3. **Instant rot:** A monolithic manual becomes a graveyard of stale rules that the agent cannot validate.
 4. **Undetectable drift:** Without structural verification (coverage, freshness, cross-links), any single document decays silently.
 
-### 4.4 The AGENTS.md Standard
+### 4.5 The AGENTS.md Standard
 
 AGENTS.md has emerged as an open community standard for guiding coding agents. It is typically treated as a high-priority context artifact loaded early in agent workflows. The format is plain Markdown with semantic headings. Recommended sections include: build and test commands, architecture overview, security considerations, git workflows, and coding conventions.
 

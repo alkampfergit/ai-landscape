@@ -45,14 +45,38 @@ effectively does not exist.
 **Implication**: When making a design decision in conversation, immediately
 capture it as an ADR in `docs/context/DECISIONS.md`.
 
-## P5: Progressive Disclosure
+## P5: Progressive Disclosure — Organized by User Journeys
 
 Don't load everything at once. Structure knowledge so agents (and humans)
 can find what they need incrementally. Start with the map (AGENTS.md),
 drill into architecture, then into domain-specific details.
 
+The organizing principle behind progressive disclosure is the **user journey**:
+a concrete path someone follows to accomplish a goal in the repository. Every
+document earns its place by serving at least one identified journey. Documentation
+that serves no journey is dead weight; a journey with missing documentation is a
+trap that forces guesswork.
+
+Typical journeys and the disclosure depth they require:
+
+| Journey                        | Entry point     | Progressive depth                                      |
+|--------------------------------|-----------------|--------------------------------------------------------|
+| Orient to the codebase         | AGENTS.md       | → ARCHITECTURE.md → domain-specific docs               |
+| Add a new feature              | AGENTS.md       | → skill `new-feature` → PATTERNS.md → domain docs      |
+| Fix a bug                      | AGENTS.md       | → skill `bug-fix` → QUALITY-GRADES.md → domain docs    |
+| Make an architectural decision | AGENTS.md       | → DECISIONS.md → DESIGN-PRINCIPLES.md → ARCHITECTURE.md|
+| Onboard a new contributor      | README.md       | → AGENTS.md → GLOSSARY.md → TASK-LIFECYCLE.md          |
+| Assess area health             | QUALITY-GRADES.md| → CODE-STANDARDS.md → domain-specific tests            |
+
+Each row is a journey. Each arrow is a disclosure step — the reader loads the
+next document only when the current one is insufficient. If a journey requires
+more than 3–4 hops to reach actionable detail, the disclosure chain is too deep
+and should be flattened.
+
 **Implication**: Keep files focused. One topic per document. Link between
-documents rather than duplicating information. Be mindful of the instruction
+documents rather than duplicating information. When adding or reviewing a
+document, identify which journey it serves and verify the disclosure chain
+from entry point to that document is intact. Be mindful of the instruction
 budget: frontier LLMs follow ~150–200 instructions reliably, and the agent's
 system prompt already consumes ~50. Every instruction added to the top-level
 agent file competes with task-specific context. Bundle detailed instructions

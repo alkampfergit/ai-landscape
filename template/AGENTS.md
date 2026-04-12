@@ -20,7 +20,7 @@
 ## Default Rules
 
 1. The repository is the single source of truth. If knowledge matters, store it here.
-2. Use progressive disclosure. Load only the docs and skills relevant to the task.
+2. Use progressive disclosure organized by **user journeys**. Load only the docs and skills relevant to the task. Every document earns its place by serving at least one identified journey; a journey with missing documentation is a gap to fix. See [DESIGN-PRINCIPLES.md § P5](docs/design/DESIGN-PRINCIPLES.md) for the journey map.
 3. Follow the task lifecycle before changing code: understand, plan, implement, validate, review, merge.
 4. Prefer boring, legible, well-understood patterns over clever abstractions.
 5. Enforce important rules mechanically with CI, linting, structural tests, or scripts.

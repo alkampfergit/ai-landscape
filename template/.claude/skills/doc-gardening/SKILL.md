@@ -68,7 +68,14 @@ these paths.
 - [ ] No ADRs reference technologies or patterns that have been removed.
 - [ ] Superseded ADRs are marked as such with a pointer to the replacement.
 
-### 6. Code Comment Hygiene
+### 6. User Journey Coverage
+
+- [ ] Each identified user journey in [DESIGN-PRINCIPLES.md § P5](../../docs/design/DESIGN-PRINCIPLES.md) has a complete disclosure chain — every document in the chain exists and links to the next.
+- [ ] No document in `docs/` is orphaned (unreachable from any journey's disclosure chain or from AGENTS.md).
+- [ ] No journey requires more than 3–4 hops from entry point to actionable detail.
+- [ ] When a new skill or doc is added, at least one journey row in P5 references it.
+
+### 7. Code Comment Hygiene
 
 - [ ] No TODO comments without issue IDs.
 - [ ] No references to removed files or renamed modules in comments.
