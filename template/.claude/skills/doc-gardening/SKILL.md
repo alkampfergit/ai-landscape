@@ -68,7 +68,14 @@ these paths.
 - [ ] No ADRs reference technologies or patterns that have been removed.
 - [ ] Superseded ADRs are marked as such with a pointer to the replacement.
 
-### 6. Code Comment Hygiene
+### 6. User Journey Coverage
+
+- [ ] Each identified user journey in [DESIGN-PRINCIPLES.md § P5](../../../docs/design/DESIGN-PRINCIPLES.md) can be walked end-to-end: every phase has reachable touchpoints (docs, skills, tools) and no broken links.
+- [ ] No document in `docs/` is orphaned — every doc is reachable from at least one journey phase or from AGENTS.md.
+- [ ] Pain points logged in previous retrospectives have been addressed (missing docs added, broken links fixed, disclosure flattened).
+- [ ] When a new skill or doc is added, it maps to at least one journey phase.
+
+### 7. Code Comment Hygiene
 
 - [ ] No TODO comments without issue IDs.
 - [ ] No references to removed files or renamed modules in comments.

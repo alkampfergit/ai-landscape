@@ -32,6 +32,16 @@
 | Fitness Function               | An objective, automated check that verifies the codebase continues to comply with a recorded architectural decision. Implemented as a structural test, linter rule, or CI gate. |
 | Superseded ADR                 | An ADR whose decision has been replaced by a newer ADR. The original is kept immutable; its status is updated to "Superseded by ADR-NNN". |
 
+## Documentation & Journey Terms
+
+| Term                          | Definition                                                                                          |
+|-------------------------------|-----------------------------------------------------------------------------------------------------|
+| User Journey                  | The end-to-end experience a person or agent goes through to accomplish a high-level goal — across phases, over time. Includes actions, touchpoints (docs, skills, tools), thoughts, pain points, and confidence shifts at each phase. Borrowed from UX design (Nielsen Norman Group). Documentation earns its place by serving identified journey phases. See Design Principle P5. |
+| User Flow                     | The specific sequence of discrete interactions within a single journey phase — e.g., "load AGENTS.md → open skill file → read PATTERNS.md." Journeys are the holistic why; flows are the concrete how. |
+| User Story                    | A short narrative in the form "As a [role], I want [goal], so that [benefit]" that captures a documentation need from the perspective of a specific user at a specific journey phase. User stories make journey phases concrete and testable. |
+| Progressive Disclosure        | A documentation structure where knowledge is layered from high-level orientation (AGENTS.md) to progressively deeper detail (architecture → domain → patterns). Readers load the next layer only when the current one is insufficient. Shaped by user journeys — each journey phase determines what information should be available at that point. See Design Principle P5. |
+| Orphaned Document             | A document that no identified user journey phase reaches for. Candidates for removal, integration into a journey-reachable doc, or explicit linking from AGENTS.md. |
+
 ## Harness Engineering Terms
 
 | Term                | Definition                                                                                          |

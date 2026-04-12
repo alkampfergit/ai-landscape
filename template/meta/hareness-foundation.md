@@ -89,7 +89,43 @@ docs/
 └── SECURITY.md
 ```
 
-### 4.3 Why Monolithic Instruction Files Fail
+### 4.3 User Journeys as the Rationale for Documentation
+
+A common failure mode in agent-first repositories is documentation that exists "because it should" rather than because it serves a concrete purpose. Over time, unmotivated documentation rots — no one updates it because no one depends on it, and its decay goes unnoticed until an agent follows a stale instruction into a dead end.
+
+The corrective principle is borrowed from UX design: anchor documentation to **user journeys**. In the Nielsen Norman Group sense, a user journey is the end-to-end experience a person goes through to accomplish a high-level goal — not just the discrete steps taken, but the full arc over time: the phases, the touchpoints reached for, the questions and uncertainties at each stage, the pain points, and the shifts in confidence. In an agent-first repository, both humans and agents are "users" of the documentation, and both have journeys.
+
+**Journey vs. flow.** A user journey is the holistic experience across phases ("deliver a feature from task to merge"), while a user flow is the specific sequence of interactions within a phase ("load AGENTS.md → open skill file → read PATTERNS.md"). Journeys answer "what is this person trying to accomplish and what do they experience along the way?"; flows answer "what specific steps do they take in this product?" Both are useful. Journeys tell you *which* documents need to exist and *why*; flows tell you *how* those documents link to each other.
+
+**How journeys shape documentation decisions:**
+
+1. **Documentation earns its place.** Every document must serve at least one phase of an identified journey. A document that no journey phase reaches for is a candidate for removal or integration — it will rot unnoticed because no one depends on it.
+
+2. **Pain points reveal gaps.** When an agent or human fails at a journey phase — confusion during planning, wrong pattern during implementation, missed constraint during validation — the failure traces to a documentation gap at that phase. This is more diagnostic than "the docs are incomplete."
+
+3. **Progressive disclosure follows the journey arc.** The user's information needs change as they move through phases: broad orientation early, specific detail mid-journey, validation criteria late. Progressive disclosure means each phase loads only the docs relevant to its needs. If the "plan" phase requires reading the entire architecture suite to find the one relevant boundary rule, disclosure is too flat. If the relevant patterns doc is unreachable during "implement," the journey is broken.
+
+4. **Maintenance is journey-scoped.** Instead of the unbounded task "keep all docs up to date," maintenance becomes "walk each journey end-to-end and verify it is smooth." A document that is individually correct but unreachable at the journey phase where it is needed is effectively invisible.
+
+5. **Journeys are living artifacts.** As the repository evolves — new domains added, new skills created, conventions changed — journeys should be revisited. A journey that was smooth six months ago may have broken links, stale docs, or missing steps today.
+
+**Typical journeys for a harness-engineered repository:**
+
+| Journey | Key phases | Key touchpoints |
+|---------|-----------|-----------------|
+| Onboard to the codebase | Orient → explore → first task | README, AGENTS.md, ARCHITECTURE.md, GLOSSARY.md |
+| Deliver a feature | Understand → plan → implement → validate → ship | AGENTS.md, `new-feature` skill, PATTERNS.md, domain docs, REVIEW-CHECKLIST.md |
+| Diagnose and fix a bug | Reproduce → locate → fix → verify → ship | AGENTS.md, `bug-fix` skill, QUALITY-GRADES.md, domain docs |
+| Make a design decision | Research → evaluate → decide → record | ARCHITECTURE.md, DESIGN-PRINCIPLES.md, DECISIONS.md |
+| Assess and improve quality | Survey health → identify debt → plan remediation → execute | QUALITY-GRADES.md, CODE-STANDARDS.md, `refactor` skill, `doc-gardening` skill |
+
+This approach transforms documentation maintenance from "keep everything up to date" (unbounded, often neglected) into "keep identified journeys smooth" (scoped, testable, prioritizable).
+
+**Making journeys testable with user stories.** Journeys become actionable when each phase is expressed as one or more user stories — short narratives in the form "As a [role], I want [goal], so that [benefit]." Each story captures a documentation need from a specific user's perspective at a specific moment in the journey. A story is satisfied when the document that answers it is reachable, sufficient, and timely at the journey phase where it is needed. Stories that no document satisfies are documentation gaps; documents that no story references are candidates for pruning.
+
+User stories bridge the gap between the high-level journey map (which identifies phases) and the concrete documentation structure (which provides content). They make the question "is this documentation complete?" answerable: enumerate the stories, check each one.
+
+### 4.4 Why Monolithic Instruction Files Fail
 
 The team explicitly documented why a single large AGENTS.md fails for agent workflows:
 
@@ -98,7 +134,7 @@ The team explicitly documented why a single large AGENTS.md fails for agent work
 3. **Instant rot:** A monolithic manual becomes a graveyard of stale rules that the agent cannot validate.
 4. **Undetectable drift:** Without structural verification (coverage, freshness, cross-links), any single document decays silently.
 
-### 4.4 The AGENTS.md Standard
+### 4.5 The AGENTS.md Standard
 
 AGENTS.md has emerged as an open community standard for guiding coding agents. It is typically treated as a high-priority context artifact loaded early in agent workflows. The format is plain Markdown with semantic headings. Recommended sections include: build and test commands, architecture overview, security considerations, git workflows, and coding conventions.
 
