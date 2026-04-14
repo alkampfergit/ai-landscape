@@ -37,18 +37,25 @@ When an agent fails, the fix is never "try harder." The fix is always:
 │   ├── workflows/
 │   │   ├── TASK-LIFECYCLE.md              # Prompt → PR lifecycle
 │   │   └── REVIEW-CHECKLIST.md            # Pre-merge verification
-│   └── context/
-│       ├── GLOSSARY.md                    # Domain terminology
-│       └── DECISIONS.md                   # Architecture Decision Records
+│   ├── context/
+│   │   ├── GLOSSARY.md                    # Domain terminology
+│   │   └── DECISIONS.md                   # Architecture Decision Records
+│   └── superpowers/
+│       ├── plans/                         # Execution plans for agentic workers
+│       └── specs/                         # Design specs for planned changes
 ├── templates/
 │   ├── pr.template.md                     # PR description template for agents
 │   ├── adr.template.md                    # ADR template for agents
-│   └── commit.template.md                # Commit message template for agents
+│   ├── commit.template.md                 # Commit message template for agents
+│   └── user-story.template.md             # User story template for agents
 ├── extra/
 │   └── links.md                           # Human reference links (not for agents)
 ├── meta/
+│   ├── harness-foundation.md              # Harness engineering background theory
 │   └── skill-guide.md                     # Guide for writing skills
 └── .claude/
+    ├── agents/
+    │   └── agents-md-sync.md              # Agent for keeping AGENTS.md in sync
     └── skills/                            # Claude Code skills (single source of truth)
         ├── new-feature/SKILL.md           # Feature implementation workflow
         ├── bug-fix/SKILL.md               # Bug reproduction and fix workflow

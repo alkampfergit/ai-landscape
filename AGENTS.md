@@ -64,7 +64,7 @@ a ready-to-use bootstrap for agent-first, harness-engineered repositories.
 | Template documentation                 | [template/docs/](template/docs/) |
 | Template skills (Claude Code)          | [template/.claude/skills/](template/.claude/skills/) |
 | Bootstrap prompt for new projects      | [template/BOOTSTRAP.md](template/BOOTSTRAP.md) |
-| Harness engineering theory             | [template/meta/hareness-foundation.md](template/meta/hareness-foundation.md) |
+| Harness engineering theory             | [template/meta/harness-foundation.md](template/meta/harness-foundation.md) |
 | Skill authoring guide                  | [template/meta/skill-guide.md](template/meta/skill-guide.md) |
 | External knowledge sources index       | [knowledge/links.md](knowledge/links.md) |
 | Authoring-repo skills                  | [.claude/skills/](.claude/skills/) |

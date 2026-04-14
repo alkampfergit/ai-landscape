@@ -53,6 +53,7 @@
 | Review checklist                   | [docs/workflows/REVIEW-CHECKLIST.md](docs/workflows/REVIEW-CHECKLIST.md) |
 | Terminology                        | [docs/context/GLOSSARY.md](docs/context/GLOSSARY.md) |
 | Decisions and ADRs                 | [docs/context/DECISIONS.md](docs/context/DECISIONS.md) |
+| Execution plans and design specs   | [docs/superpowers/](docs/superpowers/) |
 | Repeatable task workflows          | [.claude/skills/](.claude/skills/) |
 | Output templates (PRs, ADRs, commits, user stories) | [templates/](templates/) |
 | Initial project setup prompt       | [BOOTSTRAP.md](BOOTSTRAP.md) |
@@ -89,4 +90,4 @@ Read the skill before starting the work it covers.
 - If any bootstrap file disagrees with this file, AGENTS.md wins.
 
 ---
-*Last verified: 2026-03-14. If this file feels stale, run the `doc-gardening` skill.*
+*Last verified: 2026-04-14. If this file feels stale, run the `doc-gardening` skill.*
