@@ -12,6 +12,9 @@ It is _not_ a project to develop features or services in.
 Its single purpose is to author, improve, and maintain the contents of the `template/` folder —
 a ready-to-use bootstrap for agent-first, harness-engineered repositories.
 
+The root `meta/` folder contains authoring-repo meta-instructions: guidance for generating skills
+and other reusable artifacts that are intended to be included in the template or downstream projects.
+
 ## Repository Structure
 
 ```
@@ -20,6 +23,9 @@ a ready-to-use bootstrap for agent-first, harness-engineered repositories.
 ├── CLAUDE.md          ← Claude Code auto-load (redirects here)
 ├── README.md          ← Human-facing overview of this authoring repo
 ├── .gitignore         ← Root ignore rules for this repo
+├── meta/              ← Authoring-repo meta-instructions for skills and other generated artifacts
+│   ├── ARCHITECTURE-GUIDE.md
+│   └── Claude_Skills_Complete_Guide.md
 ├── knowledge/         ← External sources that inform the template
 │   └── links.md       ← Master index of ingested URLs and their insights
 ├── .claude/           ← Authoring-repo skills (distinct from template skills)
@@ -42,6 +48,7 @@ a ready-to-use bootstrap for agent-first, harness-engineered repositories.
 ## Harness Model (for this repo)
 
 - Humans author and improve the template content under `template/`.
+- The root `meta/` folder holds authoring guidance for creating reusable skills and other artifacts.
 - Agents assist with editing template files, maintaining consistency, and improving documentation.
 - When suggesting improvements, always ask: *does this belong in the template, or is it specific to the authoring repo?*
 - Keep this file short. All template-specific guidance lives inside `template/AGENTS.md`.
@@ -62,6 +69,9 @@ a ready-to-use bootstrap for agent-first, harness-engineered repositories.
 | The template itself                    | [template/](template/) |
 | Template agent entry point             | [template/AGENTS.md](template/AGENTS.md) |
 | Template documentation                 | [template/docs/](template/docs/) |
+| Authoring-repo meta instructions       | [meta/](meta/) |
+| Skill and artifact generation guidance | [meta/Claude_Skills_Complete_Guide.md](meta/Claude_Skills_Complete_Guide.md) |
+| Authoring architecture notes           | [meta/ARCHITECTURE-GUIDE.md](meta/ARCHITECTURE-GUIDE.md) |
 | Template skills (Claude Code)          | [template/.claude/skills/](template/.claude/skills/) |
 | Bootstrap prompt for new projects      | [template/BOOTSTRAP.md](template/BOOTSTRAP.md) |
 | Harness engineering theory             | [template/meta/hareness-foundation.md](template/meta/hareness-foundation.md) |
