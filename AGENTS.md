@@ -25,7 +25,9 @@ and other reusable artifacts that are intended to be included in the template or
 ├── .gitignore         ← Root ignore rules for this repo
 ├── meta/              ← Authoring-repo meta-instructions for skills and other generated artifacts
 │   ├── ARCHITECTURE-GUIDE.md
-│   └── Claude_Skills_Complete_Guide.md
+│   ├── hareness-foundation.md
+│   ├── skill-guide.md       ← The complete guide to authoring skills
+│   └── skill-list.md        ← Index of every skill bundled in the template
 ├── knowledge/         ← External sources that inform the template
 │   └── links.md       ← Master index of ingested URLs and their insights
 ├── .claude/           ← Authoring-repo skills (distinct from template skills)
@@ -70,7 +72,8 @@ and other reusable artifacts that are intended to be included in the template or
 | Template agent entry point             | [template/AGENTS.md](template/AGENTS.md) |
 | Template documentation                 | [template/docs/](template/docs/) |
 | Authoring-repo meta instructions       | [meta/](meta/) |
-| Skill and artifact generation guidance | [meta/Claude_Skills_Complete_Guide.md](meta/Claude_Skills_Complete_Guide.md) |
+| Skill and artifact generation guidance | [meta/skill-guide.md](meta/skill-guide.md) |
+| Index of template skills               | [meta/skill-list.md](meta/skill-list.md) |
 | Authoring architecture notes           | [meta/ARCHITECTURE-GUIDE.md](meta/ARCHITECTURE-GUIDE.md) |
 | Template skills (Claude Code)          | [template/.claude/skills/](template/.claude/skills/) |
 | Bootstrap prompt for new projects      | [template/BOOTSTRAP.md](template/BOOTSTRAP.md) |
@@ -86,6 +89,8 @@ Skills for maintaining this authoring repository (distinct from skills bundled i
 | Skill | Purpose | Location |
 |-------|---------|----------|
 | `ingest-link` | Fetch a URL, extract insights, update knowledge index, patch template docs | [.claude/skills/ingest-link/SKILL.md](.claude/skills/ingest-link/SKILL.md) |
+| `skill-author` | Author/update a skill inside the template and keep `meta/skill-list.md` in sync | [.claude/skills/skill-author/SKILL.md](.claude/skills/skill-author/SKILL.md) |
+| `maintainer` | Re-analyze `template/` for consistency and keep `template/structure.md` up to date | [.claude/skills/maintainer/SKILL.md](.claude/skills/maintainer/SKILL.md) |
 
 ## Before You Make Changes
 

@@ -56,6 +56,7 @@
 | Repeatable task workflows          | [.claude/skills/](.claude/skills/) |
 | Output templates (PRs, ADRs, commits, user stories) | [templates/](templates/) |
 | Initial project setup prompt       | [BOOTSTRAP.md](BOOTSTRAP.md) |
+| Template structure map             | [structure.md](structure.md) |
 | Human reference files (not for agents) | [extra/](extra/) |
 
 ## Before You Write Code

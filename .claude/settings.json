@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Edit(/.claude/skills/skill-author/**)",
+      "Edit(/.claude/skills/maintainer/**)",
+      "Edit(/.claude/skills/ingest-link/**)"
+    ]
+  }
+}

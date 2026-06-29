@@ -1,3 +1,18 @@
+---
+name: ingest-link
+description: >
+  Ingest an external URL as a knowledge source: fetch and analyse it, record an
+  entry in knowledge/links.md, write detailed notes under knowledge/sources/,
+  then patch the affected template docs and structure. Use when a new article,
+  paper, blog post, documentation page, or talk transcript should inform the
+  harness engineering template, or when the user provides a URL to "ingest",
+  "add to the knowledge base", or runs "/ingest-link <url>".
+metadata:
+  author: ai-landscape
+  version: 1.0.0
+  category: authoring
+---
+
 # Skill: ingest-link
 
 ## Purpose
