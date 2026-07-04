@@ -126,9 +126,11 @@ The index must always match the directory exactly — no missing, stale, or extr
 ### Step 7: Keep the Template's AGENTS.md in Sync
 
 Template skills are also listed in `template/AGENTS.md`. If a skill was added,
-removed, or renamed, update that table too (or run the template's
-`agents-md-sync` skill). `meta/skill-list.md` is the authoring-repo index;
-`template/AGENTS.md` is the in-template map. Both must stay consistent.
+removed, or renamed, update that table too (or delegate to the template's
+`agents-md-sync` agent at
+[template/.claude/agents/agents-md-sync.md](../../../template/.claude/agents/agents-md-sync.md)).
+`meta/skill-list.md` is the authoring-repo index; `template/AGENTS.md` is the
+in-template map. Both must stay consistent.
 
 ### Step 8: Validate
 
@@ -197,3 +199,4 @@ distinct enough to warrant its own trigger phrases.
 - [meta/skill-list.md](../../../meta/skill-list.md) — the index this skill maintains.
 - [template/.claude/skills/](../../../template/.claude/skills/) — the template skills.
 - [template/AGENTS.md](../../../template/AGENTS.md) — the in-template skill map.
+- [template/.claude/agents/agents-md-sync.md](../../../template/.claude/agents/agents-md-sync.md) — agent that reconciles `template/AGENTS.md` with the file tree.

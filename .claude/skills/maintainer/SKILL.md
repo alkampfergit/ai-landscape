@@ -1,8 +1,9 @@
 ---
 name: maintainer
 description: >
-  Re-analyze the template/ folder for internal consistency and keep
-  template/structure.md (an annotated map of the template layout) up to date.
+  Re-analyze the template/ folder for internal consistency, keep
+  template/structure.md (an annotated map of the template layout) up to date,
+  and keep the meta/skill-list.md index in sync with the template skills.
   Use when checking template consistency, after adding/renaming/removing files
   under template/, when verifying internal links and skill tables resolve, or
   when asked to "run the maintainer", "check the template", "audit the
@@ -30,6 +31,9 @@ This skill has two responsibilities:
 2. **Structure map** — generate and keep up to date `template/structure.md`, a standalone
    annotated tree of the template folder. `template/BOOTSTRAP.md` describes the structure
    inline for bootstrapping; `structure.md` is the separate, always-current reference map.
+3. **Skill index** — keep the root index `meta/skill-list.md` in sync with the skills under
+   `template/.claude/skills/` (the one root file this skill controls, since it indexes
+   template content).
 
 ## When to Use
 
@@ -41,8 +45,10 @@ Use this skill whenever:
 - The user asks to "run the maintainer", "check/audit the template", "verify template
   consistency", or "update the template structure".
 
-This skill operates **only on the `template/` folder**. It does not touch root authoring
-infrastructure (root `AGENTS.md`, `meta/`, `knowledge/`) except to read it for context.
+This skill operates **on the `template/` folder**, plus the single root index
+`meta/skill-list.md` (which catalogs `template/.claude/skills/`). It does not touch other
+root authoring infrastructure (root `AGENTS.md`, the rest of `meta/`, `knowledge/`) except to
+read it for context.
 
 ---
 
@@ -145,6 +151,21 @@ contradictions as **Warning**.
 Confirm `template/structure.md` exists and its tree matches the Phase 1 inventory. If it is
 missing or stale, it will be regenerated in Phase 3.
 
+#### Check 8 — `meta/skill-list.md` matches the template skills
+
+The root index `meta/skill-list.md` catalogs the skills under
+`template/.claude/skills/`. This is the one file outside `template/` that the maintainer
+controls, because it is an index *of* template content. Compare its table against the actual
+skill folders from Phase 1.
+
+- Skill folder exists but no row in `meta/skill-list.md` → **Critical** (add row).
+- Row points to a skill that no longer exists → **Critical** (remove row).
+- Row description has drifted from the skill's `description` frontmatter → **Warning**.
+- Rows out of alphabetical order → **Info**.
+
+`skill-author` owns this index at authoring time; the maintainer catches drift at audit
+time. When fixing, derive each row from the skill's own frontmatter — never invent rows.
+
 ---
 
 ### Phase 3 — Generate / Update `template/structure.md`
@@ -235,8 +256,9 @@ Output a concise summary:
 
 ## Guardrails
 
-- **Template-only.** Operate strictly inside `template/`. Read root files for context but do
-  not modify root `AGENTS.md`, `meta/`, or `knowledge/` from this skill.
+- **Template-scoped.** Operate inside `template/`, plus the single root index
+  `meta/skill-list.md`. Read other root files for context but do not modify root `AGENTS.md`,
+  the rest of `meta/`, or `knowledge/` from this skill.
 - **Stay general-purpose.** Never add project-, company-, or technology-specific content to
   the template.
 - **Minimal footprint.** Each fix is the smallest change that restores consistency. Do not

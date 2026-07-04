@@ -61,7 +61,7 @@ and other reusable artifacts that are intended to be included in the template or
 2. The template must remain self-consistent: internal links, skill references, and doc cross-references inside `template/` must always resolve correctly.
 3. When editing template docs, preserve the progressive-disclosure pattern: `template/AGENTS.md` is the map, linked docs are the detail.
 4. Do not introduce project-specific content into the template. It must stay general-purpose.
-5. When adding or renaming markdown files inside `template/`, run the `agents-md-sync` skill to keep `template/AGENTS.md` in sync.
+5. When adding or renaming markdown files inside `template/`, run the `agents-md-sync` agent to keep `template/AGENTS.md` in sync.
 6. When a new external source should inform the template, use the `ingest-link` skill — do not manually edit `knowledge/links.md` or template docs in isolation.
 
 ## Where to Look
